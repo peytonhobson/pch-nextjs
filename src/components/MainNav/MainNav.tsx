@@ -1,27 +1,30 @@
 import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useEffect, useState } from 'react'
 import { DesktopList } from './DesktopList'
 
-export function MainNav() {
-  // const navClass = computed(() => {
-  //       return {
-  //         ["navbar-main"]: true,
-  //         ["bg-transparent"]:
-  //           transparentBackground.value &&
-  //           !isOpen.value &&
-  //           !route.path.match(/\/(facilities\/)/g),
-  //         ["bg-white shadow-md"]:
-  //           !transparentBackground.value ||
-  //           isOpen.value ||
-  //           route.path.match(/\/(facilities\/)/g),
-  //       };
-  //     });
+const NAV_CLASSES =
+  'navbar w-full py-2 xl:h-[12vh] fixed flex flex-wrap justify-between items-center top-0 z-50 px-0 transition-colors duration-500 ease'
 
-  // TODO: ClassName
+export function MainNav() {
+  const [transparentBackground, setTransparentBackground] = useState(true)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 10) {
+        setTransparentBackground(false)
+      } else {
+        setTransparentBackground(true)
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   return (
     <nav
-      className="navbar w-full py-2 xl:h-[12vh] fixed flex flex-wrap justify-between items-center top-0 z-50 px-0;
-  transition: background-color 0.5s ease 0s;"
+      className={`${NAV_CLASSES} ${transparentBackground ? 'bg-transparent' : 'bg-white'}`}
     >
       <div className="mx-2 items-center justify-start cursor-pointer">
         <Link href="/" className="flex items-center">
@@ -32,7 +35,7 @@ export function MainNav() {
           />
         </Link>
       </div>
-      <DesktopList />
+      <DesktopList transparentBackground={transparentBackground} />
       <div v-else className="flex-none mx-2">
         <button className="btn btn-square btn-ghost">
           <FontAwesomeIcon icon={['fas', 'bars']} size="2x" />

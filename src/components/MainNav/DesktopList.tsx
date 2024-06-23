@@ -1,10 +1,16 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
+import './MainNav.css'
+import { classes } from '@@/utils/classes'
 
-const SELECTED_CLASS = 'underline-offset-8 underline text-brand-green-gray'
+const SELECTED_CLASS = 'underline'
 
-export function DesktopList() {
+export function DesktopList({
+  transparentBackground
+}: {
+  transparentBackground: boolean
+}) {
   const pathName = usePathname()
 
   const selectedRoute = pathName?.match(/\/\w+/)?.[0]
@@ -20,13 +26,16 @@ export function DesktopList() {
 
   return (
     <ul
-      className="flex flex-grow p-4 ml-5 mr-8 gap-5 max-w-3xl justify-between"
+      className={`flex flex-grow p-4  ml-5 mr-8 gap-5 max-w-3xl justify-between a ${transparentBackground ? 'text-white' : 'text-brand-green-gray'}`}
       role="group"
     >
       <li id="Home">
         <Link
           href="/"
-          className={pathName === '/' ? SELECTED_CLASS : undefined}
+          className={classes(
+            pathName === '/' ? SELECTED_CLASS : undefined,
+            'nav-list-item'
+          )}
         >
           Home
         </Link>
@@ -34,7 +43,10 @@ export function DesktopList() {
       <li id="Services">
         <Link
           href="/services"
-          className={selectedRoute === '/services' ? SELECTED_CLASS : undefined}
+          className={classes(
+            selectedRoute === '/services' ? SELECTED_CLASS : undefined,
+            'nav-list-item'
+          )}
         >
           Services
         </Link>
@@ -47,15 +59,16 @@ export function DesktopList() {
       >
         <Link
           href="/facilities"
-          className={
-            selectedRoute === '/facilities' ? SELECTED_CLASS : undefined
-          }
+          className={classes(
+            selectedRoute === '/facilities' ? SELECTED_CLASS : undefined,
+            'nav-list-item'
+          )}
           aria-current="page"
         >
           Facilities
         </Link>
         {showFacilitiesMenu && (
-          <ul className="menu bg-base-100 border absolute top-9 w-40 p-2 rounded-box">
+          <ul className="menu bg-white border absolute top-9 w-40 p-2 rounded-box">
             {facilityLinks.map(link => (
               <li key={link.text}>
                 <Link
@@ -72,9 +85,10 @@ export function DesktopList() {
       <li id="Testimonials">
         <Link
           href="/testimonials"
-          className={
-            selectedRoute === '/testimonials' ? SELECTED_CLASS : undefined
-          }
+          className={classes(
+            selectedRoute === '/testimonials' ? SELECTED_CLASS : undefined,
+            'nav-list-item'
+          )}
           aria-current="page"
         >
           Testimonials
@@ -83,7 +97,10 @@ export function DesktopList() {
       <li id="About-Us">
         <Link
           href="/about-us"
-          className={selectedRoute === '/about-us' ? SELECTED_CLASS : undefined}
+          className={classes(
+            selectedRoute === '/about-us' ? SELECTED_CLASS : undefined,
+            'nav-list-item'
+          )}
           aria-current="page"
         >
           About Us
