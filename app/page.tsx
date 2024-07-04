@@ -12,6 +12,7 @@ import { Hero } from '@@/components/Hero/Hero'
 import { Card } from '@@/components/Card/Card'
 import { FacilityCard } from './FacilityCard'
 import LearnMoreButton from './LearnMoreButton'
+import { ContactFormContainer } from './ContactFormContainer'
 import type { IconProp } from '@fortawesome/fontawesome-svg-core'
 
 const CONTACTS = [
@@ -137,7 +138,7 @@ export default function Home() {
             </div>
           </Card>
         </div>
-        {/* <contact-form-container className="w-full md:w-auto md:min-w-[35rem]" /> */}
+        <ContactFormContainer />
       </section>
     </Fragment>
   )

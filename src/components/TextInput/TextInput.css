@@ -1,0 +1,56 @@
+.formElement {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 1;
+  flex-grow: 1;
+  box-sizing: border-box;
+}
+
+.formTextInput {
+  box-sizing: border-box;
+}
+
+.inputContainer {
+  flex-grow: 1;
+  display: flex;
+  position: relative;
+}
+
+.input {
+  flex-grow: 1;
+  appearance: none;
+  background-color: white;
+  border-width: 1px;
+  border-color: #F1F5F8;
+  border-style: solid;
+  border-radius: 8px;
+  height: 40px;
+  box-sizing: border-box;
+  padding: 8px;
+  max-width: 100%;
+  height: 40px;
+}
+
+.input::placeholder {
+  color: #F1F5F8;
+  opacity: 1;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #779D7F;
+}
+
+.hasError .input {
+  border-color: red;
+}
+
+.hasError .input:focus-visible {
+  border-color: red;
+  outline-color: red;
+}
+
+.input:is(textarea) {
+  height: unset;
+  min-height: 100px;
+}

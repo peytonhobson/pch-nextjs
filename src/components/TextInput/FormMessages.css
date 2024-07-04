@@ -1,0 +1,20 @@
+:root {
+  --body2-font-size: 14px; /* Assuming typographyTokens.body2_fontSize is 14px */
+  --body2-line-height: 1.5; /* Assuming typographyTokens.body2_lineHeight is 1.5 */
+  --message-padding-bottom: 2px;
+  --message-padding-top: 2px;
+  --minimum-text-height: calc(var(--body2-font-size) * var(--body2-line-height));
+  --form-message-height: calc(var(--minimum-text-height) + var(--message-padding-bottom) + var(--message-padding-top));
+}
+
+.errorMessage {
+  /* Assuming body2TextStyle properties */
+  font-size: var(--body2-font-size);
+  line-height: var(--body2-line-height);
+  /* Add any other properties from body2TextStyle */
+
+  padding-top: var(--padding-top);
+  padding-bottom: var(--padding-bottom);
+  min-height: var(--minimum-text-height);
+  color: red;
+}

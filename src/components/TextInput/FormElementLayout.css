@@ -1,0 +1,28 @@
+:root {
+  --subheading2-font-size: 16px; /* Assuming typographyTokens.subheading2_fontSize is 16px */
+  --subheading2-line-height: 1.5; /* Assuming typographyTokens.subheading2_lineHeight is 1.5 */
+  --space-medium: 8px; /* Assuming spaceTokens.medium is 8px */
+  --label-text-height: calc(var(--subheading2-font-size) * var(--subheading2-line-height));
+  --form-element-label-height: calc(var(--label-text-height) + var(--space-medium));
+}
+
+.formElementLayout {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.formElementLabel {
+  /* Assuming subheading2TextStyle properties */
+  font-size: var(--subheading2-font-size);
+  line-height: var(--subheading2-line-height);
+  /* Add any other properties from subheading2TextStyle */
+
+  padding-bottom: var(--space-medium);
+  display: block;
+}
+
+.messageContainer {
+  padding-block: var(--space-medium);
+  min-height: var(--form-message-height);
+}
