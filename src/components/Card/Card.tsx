@@ -9,17 +9,19 @@ export function Card({
 }: {
   className?: string
   children?: React.ReactNode
-  image?: string
+  image?: string | true | undefined
   alt?: string
   title?: React.ReactNode
   description?: React.ReactNode
   button?: React.ReactNode
 }) {
+  const ImageComponent = typeof image === 'string' ? 'img' : 'div'
+
   return (
     <div className={`shadow-2xl bg-white rounded-2xl max-h-full ${className}`}>
       {image && (
-        <img
-          src={image}
+        <ImageComponent
+          src={typeof image === 'string' ? image : undefined}
           alt={alt}
           className="rounded-t-2xl w-full h-2/5 object-cover"
         />
@@ -40,3 +42,24 @@ export function Card({
     </div>
   )
 }
+
+// function Fade({
+//   children,
+//   className
+// }: {
+//   children: React.ReactNode
+//   className?: string
+// }) {
+//   return (
+//     <TransitionGroup component={undefined} className={className}>
+//       <CSSTransitionComponent
+//         component={undefined}
+//         timeout={1000}
+//         classNames="fade"
+//         transitionEnterDelay={1000}
+//       >
+//         {children}
+//       </CSSTransitionComponent>
+//     </TransitionGroup>
+//   )
+// }

@@ -1,3 +1,16 @@
 .nav-list-item {
-  @apply block py-2 mb-2 md:py-0 font-bold text-base lg:text-lg underline-offset-8 decoration-4 hover:underline hover:text-brand-green-gray cursor-pointer;
+  @apply block py-2 md:py-0 font-bold text-base lg:text-lg underline-offset-8 decoration-4 hover:underline hover:text-brand-green-gray cursor-pointer;
+}
+
+.header {
+  transition: background-color 0.3s ease;
+  background-color: transparent;
+}
+
+.header:not(:target)  {
+  background-color: white;
+}
+
+#scroll-trigger {
+    scroll-margin-top: 1px;
 }

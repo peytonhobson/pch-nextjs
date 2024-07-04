@@ -6,6 +6,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <Fragment>
       <MainNav />
+      <div id="scroll-trigger"></div>
       {children}
       <Footer />
     </Fragment>

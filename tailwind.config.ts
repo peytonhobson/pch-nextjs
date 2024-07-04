@@ -2,7 +2,11 @@
 import type { Config } from 'tailwindcss'
 
 const config: Config = {
-  content: ['./public/**/*.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
+  content: [
+    './public/**/*.html',
+    './app/**/*.{vue,js,ts,jsx,tsx}',
+    './src/**/*.{vue,js,ts,jsx,tsx}'
+  ],
   presets: [],
   darkMode: 'media', // or 'class'
   theme: {

@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useMemo, useRef, useState } from 'react'
+import React, { Fragment } from 'react'
 import Link from 'next/link'
 import Head from 'next/head'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -7,14 +7,11 @@ import {
   faPeopleCarry,
   faPeopleGroup
 } from '@fortawesome/free-solid-svg-icons'
-import {
-  CSSTransition as CSSTransitionComponent,
-  TransitionGroup
-} from 'react-transition-group'
 import { Button } from '@@/components/Button/Button'
 import { Hero } from '@@/components/Hero/Hero'
 import { Card } from '@@/components/Card/Card'
-import { facilities } from '@@/data/facilities'
+import { FacilityCard } from './FacilityCard'
+import LearnMoreButton from './LearnMoreButton'
 import type { IconProp } from '@fortawesome/fontawesome-svg-core'
 
 const CONTACTS = [
@@ -48,13 +45,11 @@ const CONTACTS = [
 ]
 
 export default function Home() {
-  // eslint-disable-next-line no-null/no-null
-  const scrollRef = useRef<HTMLDivElement | null>(null)
-
   return (
     <Fragment>
       <Head>
         <title>Premier Care Homes</title>
+        {/* TODO: Metadata schema */}
         <meta
           name="description"
           content="Premier Care Homes - When only the best will do."
@@ -66,20 +61,7 @@ export default function Home() {
         image="https://premier-care-homes.s3.amazonaws.com/assets/other/landing-hero.jpg"
       >
         <div className="flex justify-evenly w-full gap-8">
-          <Button
-            variant="primary"
-            className="!w-32 md:!w-48"
-            onClick={() => {
-              window.scrollTo({
-                top: scrollRef.current?.offsetTop
-                  ? scrollRef.current.offsetTop - 90
-                  : 0,
-                behavior: 'smooth'
-              })
-            }}
-          >
-            Learn More
-          </Button>
+          <LearnMoreButton />
           <Link href="/about-us" className="!w-32 md:!w-48">
             <Button variant="primary">About Us</Button>
           </Link>
@@ -87,7 +69,7 @@ export default function Home() {
       </Hero>
       <div
         className="w-full flex items-center py-10 md:py-24 px-10 lg:px-20 bg-mint"
-        ref={scrollRef}
+        id="content"
       >
         <p className="text-center font-bold text-xl md:text-3xl lg:text-5xl lg:leading-relaxed text-white">
           We know it’s a difficult decision when you or your loved one can no
@@ -176,43 +158,11 @@ function DescriptionBox({
     <Card className="p-8 md:max-w-md w-full md:w-2/5 lg:w-2/7 md:min-w-[23rem] flex flex-col gap-6 max-h-56">
       <div className="flex gap-6 items-center">
         <FontAwesomeIcon icon={icon} color={color} size="2x" />
+
         <h2 className="font-semibold text-2xl text-black">{title}</h2>
       </div>
       <div>{description}</div>
     </Card>
-  )
-}
-
-const IMAGE_LINKS = facilities.map(facility => facility.images[0])
-
-function FacilityCard() {
-  const [index, setIndex] = useState<number>(0)
-
-  const currentFacility = facilities[index]
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((index + 1) % facilities.length)
-    }, 5000)
-
-    return () => clearInterval(interval)
-  }, [index])
-
-  return (
-    <Card
-      className="md:max-w-md w-full md:w-2/5 lg:w-2/7 flex flex-col md:min-w-[23rem] h-128"
-      image={IMAGE_LINKS[index]}
-      title={`Facilities - ${currentFacility?.name}`}
-      description={currentFacility?.summary}
-      alt={currentFacility?.name}
-      button={
-        <Link href={`/facilities/${currentFacility?.name}`}>
-          <Button variant="primary" onClick={() => {}}>
-            Learn More
-          </Button>
-        </Link>
-      }
-    />
   )
 }
 
@@ -256,23 +206,5 @@ function ContactInfo({
         </a>
       </div>
     </div>
-  )
-}
-
-// TODO: Fix this
-function FadeTransition({
-  children,
-  className,
-  ...props
-}: {
-  children: React.ReactNode
-  className?: string
-}) {
-  return (
-    <TransitionGroup className={className}>
-      <CSSTransitionComponent {...props} timeout={1000} classNames="fade">
-        <Fragment>{children}</Fragment>
-      </CSSTransitionComponent>
-    </TransitionGroup>
   )
 }

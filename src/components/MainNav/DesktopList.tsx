@@ -1,16 +1,15 @@
+'use client'
+
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 import './MainNav.css'
 import { classes } from '@@/utils/classes'
+import { useHeader } from './HeaderBackground'
 
 const SELECTED_CLASS = 'underline'
 
-export function DesktopList({
-  transparentBackground
-}: {
-  transparentBackground: boolean
-}) {
+export function DesktopList() {
   const pathName = usePathname()
 
   const selectedRoute = pathName?.match(/\/\w+/)?.[0]
@@ -23,6 +22,8 @@ export function DesktopList({
     { text: 'Madrona', to: '/facilities/Madrona' },
     { text: 'Trapper', to: '/facilities/Trapper' }
   ]
+
+  const { transparentBackground } = useHeader()
 
   return (
     <ul

@@ -1,31 +1,12 @@
 import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { useEffect, useState } from 'react'
+import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { DesktopList } from './DesktopList'
-
-const NAV_CLASSES =
-  'navbar w-full py-2 xl:h-[12vh] fixed flex flex-wrap justify-between items-center top-0 z-50 px-0 transition-colors duration-500 ease'
+import { HeaderBackground } from './HeaderBackground'
 
 export function MainNav() {
-  const [transparentBackground, setTransparentBackground] = useState(true)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setTransparentBackground(false)
-      } else {
-        setTransparentBackground(true)
-      }
-    }
-
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
   return (
-    <nav
-      className={`${NAV_CLASSES} ${transparentBackground ? 'bg-transparent' : 'bg-white'}`}
-    >
+    <HeaderBackground>
       <div className="mx-2 items-center justify-start cursor-pointer">
         <Link href="/" className="flex items-center">
           <img
@@ -35,13 +16,13 @@ export function MainNav() {
           />
         </Link>
       </div>
-      <DesktopList transparentBackground={transparentBackground} />
-      <div v-else className="flex-none mx-2">
+      <DesktopList />
+      <div className="flex-none mx-2 lg:hidden">
         <button className="btn btn-square btn-ghost">
-          <FontAwesomeIcon icon={['fas', 'bars']} size="2x" />
+          <FontAwesomeIcon icon={faBars} size="2x" />
         </button>
       </div>
       {/* <main-nav-mobile-list :is-open="isOpen" :list-items="listItems" /> */}
-    </nav>
+    </HeaderBackground>
   )
 }

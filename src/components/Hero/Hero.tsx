@@ -33,7 +33,6 @@ export function Hero({ image, title, text, children }: HeroProps) {
               {text}
             </h2>
           )}
-          <slot></slot>
         </div>
       </div>
     </div>
