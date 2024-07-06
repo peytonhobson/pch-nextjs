@@ -21,7 +21,7 @@
   appearance: none;
   background-color: white;
   border-width: 1px;
-  border-color: #F1F5F8;
+  border-color: rgba(31, 41, 55, 0.2);
   border-style: solid;
   border-radius: 8px;
   height: 40px;
