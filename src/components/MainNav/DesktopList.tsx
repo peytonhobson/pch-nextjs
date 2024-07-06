@@ -6,14 +6,13 @@ import { useState } from 'react'
 import './MainNav.css'
 import { classes } from '@@/utils/classes'
 import { useHeader } from './HeaderBackground'
+import { PAGE_LIST } from './MainNavMobile'
 
 const SELECTED_CLASS = 'underline'
 
 export function DesktopList() {
   const pathName = usePathname()
-
   const selectedRoute = pathName?.match(/\/\w+/)?.[0]
-
   const [showFacilitiesMenu, setShowFacilitiesMenu] = useState(false)
 
   const facilityLinks = [
@@ -27,86 +26,60 @@ export function DesktopList() {
 
   return (
     <ul
-      className={`flex-grow p-4  ml-5 mr-8 gap-5 max-w-3xl justify-between a hidden lg:flex ${transparentBackground ? 'text-white' : 'text-brand-green-gray'}`}
+      className={`flex-grow p-4 ml-5 mr-8 gap-5 max-w-3xl justify-between hidden lg:flex ${transparentBackground ? 'text-white' : 'text-brand-green-gray'}`}
       role="group"
     >
-      <li id="Home">
-        <Link
-          href="/"
-          className={classes(
-            pathName === '/' ? SELECTED_CLASS : undefined,
-            'nav-list-item'
+      {PAGE_LIST.map(page => (
+        <li key={page.text} id={page.text.replace(' ', '-')}>
+          {page.text === 'Facilities' ? (
+            <div
+              className="relative flex justify-center"
+              onMouseEnter={() => setShowFacilitiesMenu(true)}
+              onMouseLeave={() => setShowFacilitiesMenu(false)}
+            >
+              <Link
+                href={page.to}
+                className={classes(
+                  selectedRoute === page.to ? SELECTED_CLASS : undefined,
+                  'nav-list-item'
+                )}
+                aria-current={selectedRoute === page.to ? 'page' : undefined}
+              >
+                {page.text}
+              </Link>
+              {showFacilitiesMenu && (
+                <ul className="menu bg-white border absolute top-9 w-40 p-2 rounded-box">
+                  {facilityLinks.map(link => (
+                    <li key={link.text}>
+                      <Link
+                        href={link.to}
+                        className="flex justify-center text-black hover:bg-brand-green-gray hover:text-white prose"
+                      >
+                        {link.text}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          ) : (
+            <Link
+              href={page.to}
+              className={classes(
+                pathName === page.to ? SELECTED_CLASS : undefined,
+                'nav-list-item'
+              )}
+              aria-current={
+                (page.to === '/' ? pathName === '/' : selectedRoute === page.to)
+                  ? 'page'
+                  : undefined
+              }
+            >
+              {page.text}
+            </Link>
           )}
-        >
-          Home
-        </Link>
-      </li>
-      <li id="Services">
-        <Link
-          href="/services"
-          className={classes(
-            selectedRoute === '/services' ? SELECTED_CLASS : undefined,
-            'nav-list-item'
-          )}
-        >
-          Services
-        </Link>
-      </li>
-      <li
-        id="Facilities"
-        className="relative flex justify-center"
-        onMouseEnter={() => setShowFacilitiesMenu(true)}
-        onMouseLeave={() => setShowFacilitiesMenu(false)}
-      >
-        <Link
-          href="/facilities"
-          className={classes(
-            selectedRoute === '/facilities' ? SELECTED_CLASS : undefined,
-            'nav-list-item'
-          )}
-          aria-current="page"
-        >
-          Facilities
-        </Link>
-        {showFacilitiesMenu && (
-          <ul className="menu bg-white border absolute top-9 w-40 p-2 rounded-box">
-            {facilityLinks.map(link => (
-              <li key={link.text}>
-                <Link
-                  href={link.to}
-                  className="flex justify-center text-black hoverbg-brand-green-gray hovertext-white prose"
-                >
-                  {link.text}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        )}
-      </li>
-      <li id="Testimonials">
-        <Link
-          href="/testimonials"
-          className={classes(
-            selectedRoute === '/testimonials' ? SELECTED_CLASS : undefined,
-            'nav-list-item'
-          )}
-          aria-current="page"
-        >
-          Testimonials
-        </Link>
-      </li>
-      <li id="About-Us">
-        <Link
-          href="/about-us"
-          className={classes(
-            selectedRoute === '/about-us' ? SELECTED_CLASS : undefined,
-            'nav-list-item'
-          )}
-          aria-current="page"
-        >
-          About Us
-        </Link>
-      </li>
+        </li>
+      ))}
     </ul>
   )
 }
