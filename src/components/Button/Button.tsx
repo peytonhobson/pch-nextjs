@@ -1,4 +1,5 @@
 import React from 'react'
+import { SpinnerIcon } from './SpinnerIcon'
 
 interface ButtonProps {
   variant?: 'primary' | 'secondary'
@@ -6,6 +7,7 @@ interface ButtonProps {
   className?: string
   onClick?: () => void
   type?: 'button' | 'submit' | 'reset'
+  loading?: boolean
 }
 
 const PRIMARY_CLASS =
@@ -16,7 +18,8 @@ export function Button({
   children,
   className,
   onClick,
-  type = 'button'
+  type = 'button',
+  loading
 }: ButtonProps) {
   return (
     <button
@@ -24,7 +27,7 @@ export function Button({
       className={`${PRIMARY_CLASS} ${className}`}
       type={type}
     >
-      {children}
+      {loading ? <SpinnerIcon /> : children}
     </button>
   )
 }

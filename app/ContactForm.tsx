@@ -1,10 +1,12 @@
 'use client'
 
-import sgMail from '@sendgrid/mail'
+import { useCallback, useState } from 'react'
 import { Button } from '@@/components/Button/Button'
 import { FormTextInput } from '@@/components/TextInput/FormTextInput'
 import { useForm } from '@@/utils/useForm'
 import { useFormField } from '@@/utils/useFormField'
+import { useBannerManager } from '@@/components/Banner/useBannerManager'
+import { contactEmailAction } from './contactEmailAction'
 
 export function ContactForm() {
   const nameField = useFormField({
@@ -24,6 +26,7 @@ export function ContactForm() {
       }
     ]
   })
+  const { getValue: getName } = nameField
 
   const emailField = useFormField({
     initialValue: '',
@@ -38,7 +41,6 @@ export function ContactForm() {
           ]
         }
 
-        // TODO: Test this
         if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
           return [
             {
@@ -52,6 +54,7 @@ export function ContactForm() {
       }
     ]
   })
+  const { getValue: getEmail } = emailField
 
   const messageField = useFormField({
     initialValue: '',
@@ -70,25 +73,63 @@ export function ContactForm() {
       }
     ]
   })
+  const { getValue: getMessage } = messageField
 
   const form = useForm({
     fields: [nameField, emailField, messageField]
   })
+  const { preSubmitCheck, resetFormState, resetFormValues } = form
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
+  const [isLoading, setIsLoading] = useState(false)
 
-    const formIsValid = form.preSubmitCheck()
+  const { addOrUpdateBanner } = useBannerManager()
 
-    // TODO: useCallback and test this
-    if (formIsValid) {
-      contactEmailAction({
-        name: nameField.value,
-        email: emailField.value,
-        subject: messageField.value
-      })
-    }
-  }
+  const handleSubmit = useCallback(
+    async (event: React.FormEvent<HTMLFormElement>) => {
+      event.preventDefault()
+
+      const formIsValid = preSubmitCheck()
+
+      // TODO: useCallback and test this
+      if (formIsValid) {
+        setIsLoading(true)
+
+        const contacted = await contactEmailAction({
+          name: getName(),
+          email: getEmail(),
+          subject: getMessage()
+        })
+
+        if (contacted) {
+          addOrUpdateBanner({
+            id: 'contactSuccess',
+            variant: 'success',
+            content: 'Message sent successfully!'
+          })
+
+          resetFormState()
+          resetFormValues()
+        } else {
+          addOrUpdateBanner({
+            id: 'contactFailure',
+            variant: 'danger',
+            content: 'Message failed to send'
+          })
+        }
+
+        setIsLoading(false)
+      }
+    },
+    [
+      preSubmitCheck,
+      getName,
+      getEmail,
+      getMessage,
+      resetFormState,
+      resetFormValues,
+      addOrUpdateBanner
+    ]
+  )
 
   return (
     <form className="w-full" onSubmit={handleSubmit}>
@@ -96,61 +137,41 @@ export function ContactForm() {
         inputType="text"
         id="nameInput"
         label="Name"
-        messageDefinitions={[]}
+        onTextInput={nameField.setValue}
+        value={nameField.value}
+        messageDefinitions={nameField.messages}
+        attributes={{
+          onBlur: nameField.handleBlur
+        }}
         className="nameInput"
       />
       <FormTextInput
         inputType="text"
         id="emailInput"
         label="Email"
-        messageDefinitions={[]}
+        onTextInput={emailField.setValue}
+        value={emailField.value}
+        messageDefinitions={emailField.messages}
+        attributes={{
+          onBlur: emailField.handleBlur
+        }}
         className="emailInput"
       />
       <FormTextInput
         inputType="textarea"
         id="messageInput"
         label="Message"
-        messageDefinitions={[]}
+        onTextInput={messageField.setValue}
+        value={messageField.value}
+        messageDefinitions={messageField.messages}
+        attributes={{
+          onBlur: messageField.handleBlur
+        }}
         className="messageInput"
       />
-      <Button className="submitBtn" type="submit">
+      <Button className="submitBtn" type="submit" loading={isLoading}>
         Submit
       </Button>
     </form>
   )
-}
-
-// Create server action in nextjs to send email
-async function contactEmailAction({
-  name: senderName,
-  email,
-  subject
-}: {
-  name: string
-  email: string
-  subject: string
-}) {
-  'use server'
-
-  const msg = {
-    template_id: 'd-16180d1ed06a4f578e60b245cbeb5d02',
-    from: 'peyton.hobson1@gmail.com',
-    personalizations: [
-      {
-        to: 'premiercarehomes@comcast.net',
-        dynamic_template_data: {
-          name: senderName,
-          email: email,
-          message: subject
-        }
-      }
-    ]
-  }
-
-  // TODO: Fix
-  try {
-    await sgMail.send(msg)
-  } catch (error) {
-    console.log(error)
-  }
 }

@@ -1,0 +1,29 @@
+.banner {
+  border-radius: 8px;
+  border-style: solid;
+  border-width: 1px;
+  box-sizing: border-box;
+  max-width: 400px;
+  width: min(100vw, max-content);
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+}
+
+.content {
+  /* Assuming body1TextStyle is defined elsewhere */
+  display: flex;
+  align-items: center;
+}
+
+.success {
+  background-color: #EFFFED;
+  border-color: #12AA01;
+  /* fill: var(--icon-success-base); */
+}
+
+.danger {
+  background-color: #FDEBEF;
+  border-color: #B02627;
+  fill: var(--icon-danger-base);
+}

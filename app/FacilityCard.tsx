@@ -23,7 +23,7 @@ export function FacilityCard() {
 
   return (
     <Card
-      className="md:max-w-md w-full md:w-2/5 lg:w-2/7 flex flex-col md:min-w-[23rem] h-128"
+      className="md:max-w-md w-full md:w-2/5 lg:w-2/7 flex flex-col md:min-w-[23rem] min-h-128"
       image={IMAGE_LINKS[index]}
       title={`Facilities - ${currentFacility?.name}`}
       description={currentFacility?.summary}

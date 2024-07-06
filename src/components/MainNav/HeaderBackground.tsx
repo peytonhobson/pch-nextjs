@@ -4,15 +4,18 @@ import { createContext, useContext, useEffect, useState } from 'react'
 
 type HeaderContextType = {
   transparentBackground: boolean
+  mobileMenuOpen: boolean
+  setMobileMenuOpen: (open: boolean) => void
 }
 
 const HeaderContext = createContext<HeaderContextType | undefined>(undefined)
 
 const NAV_CLASSES =
-  'navbar w-full py-2 xl:h-[12vh] fixed flex flex-wrap justify-between items-center top-0 z-50 px-0 transition-colors duration-500 ease'
+  'navbar w-full py-2 xl:h-[12vh] fixed flex flex-wrap justify-between items-center top-0 z-10 px-0 transition-colors duration-500 ease'
 
 export function HeaderBackground({ children }: { children: React.ReactNode }) {
   const [transparentBackground, setTransparentBackground] = useState(true)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,9 +33,11 @@ export function HeaderBackground({ children }: { children: React.ReactNode }) {
   }, [])
 
   return (
-    <HeaderContext.Provider value={{ transparentBackground }}>
+    <HeaderContext.Provider
+      value={{ transparentBackground, mobileMenuOpen, setMobileMenuOpen }}
+    >
       <nav
-        className={`${NAV_CLASSES} ${transparentBackground ? 'bg-transparent' : 'bg-white'}`}
+        className={`${NAV_CLASSES} ${transparentBackground && !mobileMenuOpen ? 'bg-transparent' : 'bg-white'}`}
       >
         {children}
       </nav>

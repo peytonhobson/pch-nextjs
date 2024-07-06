@@ -23,6 +23,6 @@
 }
 
 .messageContainer {
-  padding-block: var(--space-medium);
-  min-height: var(--form-message-height);
+  padding-block: 8px;
+  min-height: 36px;
 }

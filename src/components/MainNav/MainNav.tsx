@@ -1,8 +1,7 @@
 import Link from 'next/link'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { DesktopList } from './DesktopList'
 import { HeaderBackground } from './HeaderBackground'
+import { MainNavMobile } from './MainNavMobile'
 
 export function MainNav() {
   return (
@@ -17,12 +16,7 @@ export function MainNav() {
         </Link>
       </div>
       <DesktopList />
-      <div className="flex-none mx-2 lg:hidden">
-        <button className="btn btn-square btn-ghost">
-          <FontAwesomeIcon icon={faBars} size="2x" />
-        </button>
-      </div>
-      {/* <main-nav-mobile-list :is-open="isOpen" :list-items="listItems" /> */}
+      <MainNavMobile />
     </HeaderBackground>
   )
 }

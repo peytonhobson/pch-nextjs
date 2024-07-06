@@ -27,7 +27,7 @@ export function DesktopList() {
 
   return (
     <ul
-      className={`flex flex-grow p-4  ml-5 mr-8 gap-5 max-w-3xl justify-between a ${transparentBackground ? 'text-white' : 'text-brand-green-gray'}`}
+      className={`flex-grow p-4  ml-5 mr-8 gap-5 max-w-3xl justify-between a hidden lg:flex ${transparentBackground ? 'text-white' : 'text-brand-green-gray'}`}
       role="group"
     >
       <li id="Home">
