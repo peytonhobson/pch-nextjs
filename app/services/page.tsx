@@ -75,10 +75,18 @@ export default function ServicesPage() {
             <p>
               <strong className="text-default-text">Rates:</strong> For detailed
               rate information and to discuss specific care needs, please{' '}
-              <a href="tel:503-798-5610">call</a> or
-              <a href="mailto:janelle@premiercarehomes.net">email</a> us. Our
-              team is ready to assist you with any questions and provide the
-              necessary information to make an informed decision.
+              <a href="tel:503-798-5610" className="!text-blue-600">
+                call
+              </a>{' '}
+              or{' '}
+              <a
+                href="mailto:janelle@premiercarehomes.net"
+                className="!text-blue-600"
+              >
+                email
+              </a>{' '}
+              us. Our team is ready to assist you with any questions and provide
+              the necessary information to make an informed decision.
             </p>
             <p>
               <strong className="text-red-600">Important Note:</strong> Please

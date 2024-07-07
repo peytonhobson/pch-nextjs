@@ -31,8 +31,9 @@ export const facilities = [
     name: 'Hallet',
     summary:
       'This one-level home provides a small intimate setting with a private bedroom afforded to each of the five residents. ',
-    description:
-      'Located in a beautiful West Salem neighborhood, this home is secure and pristine. This one-level home provides a small intimate setting with a private bedroom afforded to each of the five residents.<br><br>For daily living and activities, the communal space is a large light-filled area. The private, well-kept grounds and patio allow residents to enjoy the tranquillity of the outdoors.',
+    description: `Located in a beautiful West Salem neighborhood, this home is secure and pristine. This one-level home provides a small intimate setting with a private bedroom afforded to each of the five residents.
+      
+    For daily living and activities, the communal space is a large light-filled area. The private, well-kept grounds and patio allow residents to enjoy the tranquillity of the outdoors.`,
     images: [
       'https://premier-care-homes.s3.amazonaws.com/assets/hallet/hallet-7.jpg',
       'https://premier-care-homes.s3.amazonaws.com/assets/hallet/hallet-1.jpg',
@@ -50,8 +51,9 @@ export const facilities = [
     name: 'Madrona',
     summary:
       'Our comfortable immaculate home is located in the delightful Laurel Springs neighborhood in South Salem. ',
-    description:
-      'Our comfortable immaculate home is located in the delightful Laurel Springs neighborhood in South Salem. This one-level home provides a small intimate setting with a private bedroom afforded to each of the five residents.<br><br>For daily living and activities, the communal space is a large light-filled area. The private, well-kept grounds and patio allow residents to enjoy the tranquillity of the outdoors.',
+    description: `Our comfortable immaculate home is located in the delightful Laurel Springs neighborhood in South Salem. This one-level home provides a small intimate setting with a private bedroom afforded to each of the five residents.
+      
+      For daily living and activities, the communal space is a large light-filled area. The private, well-kept grounds and patio allow residents to enjoy the tranquillity of the outdoors.`,
     images: [
       'https://premier-care-homes.s3.amazonaws.com/assets/madrona/madrona-house-3.jpg',
       'https://premier-care-homes.s3.amazonaws.com/assets/madrona/madrona-house-2.jpg',
@@ -72,8 +74,9 @@ export const facilities = [
     name: 'Trapper',
     summary:
       'This comfortable and impeccable home is located in a beautiful Northeast Salem neighborhood near Chemeketa Community College. ',
-    description:
-      'This comfortable and impeccable home is located in a beautiful Northeast Salem neighborhood near Chemeketa Community College. This one-level home provides a small intimate setting with a private bedroom afforded to each of the five residents.<br><br>For daily living and activities, the communal space is a large light-filled area. The private, well-kept grounds and patio allow residents to enjoy the tranquillity of the outdoors.',
+    description: `This comfortable and impeccable home is located in a beautiful Northeast Salem neighborhood near Chemeketa Community College. This one-level home provides a small intimate setting with a private bedroom afforded to each of the five residents.
+      
+      For daily living and activities, the communal space is a large light-filled area. The private, well-kept grounds and patio allow residents to enjoy the tranquillity of the outdoors.`,
     images: [
       'https://premier-care-homes.s3.amazonaws.com/assets/trapper/trapper-1.jpg',
       'https://premier-care-homes.s3.amazonaws.com/assets/trapper/trapper-2.jpg',

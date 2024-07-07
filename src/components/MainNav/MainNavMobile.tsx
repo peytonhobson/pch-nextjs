@@ -1,6 +1,6 @@
 'use client'
 
-import { Fragment, useCallback, useState, useEffect } from 'react'
+import { Fragment, useCallback } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -17,14 +17,9 @@ export const PAGE_LIST = [
 
 export function MainNavMobile() {
   const pathname = usePathname()
-  const [mounted, setMounted] = useState(false)
 
   const { transparentBackground, setMobileMenuOpen, mobileMenuOpen } =
     useHeader()
-
-  useEffect(() => {
-    setMounted(true)
-  }, [])
 
   const navItemClass = useCallback(
     (to: string) => {
@@ -36,19 +31,12 @@ export function MainNavMobile() {
     [pathname]
   )
 
-  const [isOpen, setIsOpen] = useState(false)
-
-  if (!mounted) return <Fragment />
-
   return (
     <Fragment>
       <div className="flex-none mx-2 lg:hidden">
         <button
           className="btn btn-square btn-ghost"
-          onClick={() => {
-            setIsOpen(!isOpen)
-            setMobileMenuOpen(!isOpen)
-          }}
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
           <FontAwesomeIcon
             icon={faBars}
@@ -58,12 +46,13 @@ export function MainNavMobile() {
         </button>
       </div>
 
-      <div className={`w-full ${!isOpen && 'hidden'} bg-white`}>
+      <div className={`w-full ${!mobileMenuOpen && 'hidden'} bg-white`}>
         <ul className="flex flex-col p-4 w-full justify-evenly text-center md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 ">
           {PAGE_LIST.map(listItem => (
             <li key={listItem.text}>
               <Link
                 href={listItem.to}
+                onClick={() => setMobileMenuOpen(false)}
                 className={navItemClass(listItem.to)}
                 aria-current={pathname === listItem.to ? 'page' : undefined}
               >

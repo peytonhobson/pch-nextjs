@@ -28,6 +28,14 @@ body {
     scroll-behavior: smooth;
 }
 
+.prose {
+  color: rgba(31, 41, 55, 0.8) !important;
+}
+
+.prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+  color: black !important;
+}
+
 h1, h2, h3, h4, h5, h6 {
   color: black;
 }
@@ -67,8 +75,6 @@ h6 {
   font-weight: 700;
   line-height: 1.2;
 }
-
-
 
 @layer utilities {
   .text-balance {

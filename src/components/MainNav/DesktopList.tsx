@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useState } from 'react'
+import { Fragment, useState } from 'react'
 import './MainNav.css'
 import { classes } from '@@/utils/classes'
 import { useHeader } from './HeaderBackground'
@@ -16,10 +16,10 @@ export function DesktopList() {
   const [showFacilitiesMenu, setShowFacilitiesMenu] = useState(false)
 
   const facilityLinks = [
-    { text: 'Baxter', to: '/facilities/Baxter' },
-    { text: 'Hallet', to: '/facilities/Hallet' },
-    { text: 'Madrona', to: '/facilities/Madrona' },
-    { text: 'Trapper', to: '/facilities/Trapper' }
+    { text: 'Baxter', to: '/facilities/baxter' },
+    { text: 'Hallet', to: '/facilities/hallet' },
+    { text: 'Madrona', to: '/facilities/madrona' },
+    { text: 'Trapper', to: '/facilities/trapper' }
   ]
 
   const { transparentBackground } = useHeader()
@@ -41,25 +41,30 @@ export function DesktopList() {
                 href={page.to}
                 className={classes(
                   selectedRoute === page.to ? SELECTED_CLASS : undefined,
-                  'nav-list-item'
+                  'nav-list-item',
+                  showFacilitiesMenu ? 'text-brand-green-gray' : undefined
                 )}
+                onClick={() => setShowFacilitiesMenu(false)}
                 aria-current={selectedRoute === page.to ? 'page' : undefined}
               >
                 {page.text}
               </Link>
               {showFacilitiesMenu && (
-                <ul className="menu bg-white border absolute top-9 w-40 p-2 rounded-box">
-                  {facilityLinks.map(link => (
-                    <li key={link.text}>
-                      <Link
-                        href={link.to}
-                        className="flex justify-center text-black hover:bg-brand-green-gray hover:text-white prose"
-                      >
-                        {link.text}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
+                <Fragment>
+                  <div className="absolute top-7 h-2 w-full opacity-0" />
+                  <ul className="menu bg-white border absolute top-9 w-40 p-2 rounded-box">
+                    {facilityLinks.map(link => (
+                      <li key={link.text}>
+                        <Link
+                          href={link.to}
+                          className="flex justify-center text-black hover:bg-brand-green-gray hover:text-white prose"
+                        >
+                          {link.text}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </Fragment>
               )}
             </div>
           ) : (
