@@ -18,6 +18,7 @@ const config: Config = {
     },
     colors: ({ colors }) => ({
       ...colors,
+      'default-text': 'rgba(31, 41, 55, 0.8)',
       'brand-green-gray': '#779D7F',
       'brand-dark-green': '#3a503e',
       'brand-light-green': '#99c9a3',
