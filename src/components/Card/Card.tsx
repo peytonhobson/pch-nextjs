@@ -18,7 +18,9 @@ export function Card({
   const ImageComponent = typeof image === 'string' ? 'img' : 'div'
 
   return (
-    <div className={`shadow-2xl bg-white rounded-2xl max-h-full ${className}`}>
+    <div
+      className={`shadow-2xl bg-white rounded-2xl max-h-full overflow-hidden ${className}`}
+    >
       {image && (
         <ImageComponent
           src={typeof image === 'string' ? image : undefined}

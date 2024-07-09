@@ -1,5 +1,5 @@
 import { Fragment } from 'react'
-import { facilities } from '@@/data/facilities'
+import { facilities } from '@@/data/facilities.en'
 import { FacilityCard } from '../FacilityCard'
 import { MapDirections } from './MapDirections'
 import { FacilityCarousel } from './FacilityCarousel'

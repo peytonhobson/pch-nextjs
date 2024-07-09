@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { Button } from '@@/components/Button/Button'
-import { facilities } from '@@/data/facilities'
+import { facilities } from '@@/data/facilities.en'
 import { Card } from '@@/components/Card/Card'
 
 const IMAGE_LINKS = facilities.map(facility => facility.images[0])

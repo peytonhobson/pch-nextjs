@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import type { Facility } from '@@/data/facilities'
+import type { Facility } from '@@/data/facilities.en'
 
 export function FacilityCard({ facility }: { facility: Facility }) {
   return (

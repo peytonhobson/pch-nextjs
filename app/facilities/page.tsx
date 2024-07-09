@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import { Fragment } from 'react'
-import { facilities } from '@@/data/facilities'
+import { facilities } from '@@/data/facilities.en'
 import { Hero } from '@@/components/Hero/Hero'
 import { FacilityCard } from './FacilityCard'
 

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { Card } from '@@/components/Card/Card'
-import type { Facility } from '@@/data/facilities'
+import type { Facility } from '@@/data/facilities.en'
 
 export function FacilityCarousel({ facility }: { facility: Facility }) {
   const { images } = facility
