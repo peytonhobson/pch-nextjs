@@ -6,6 +6,7 @@ import { FormTextInput } from '@@/components/TextInput/FormTextInput'
 import { useForm } from '@@/utils/useForm'
 import { useFormField } from '@@/utils/useFormField'
 import { useBannerManager } from '@@/components/Banner/useBannerManager'
+import { useEmailFormField } from '@@/utils/useEmailFormField'
 import { contactEmailAction } from './contactEmailAction'
 
 export function ContactForm() {
@@ -28,32 +29,7 @@ export function ContactForm() {
   })
   const { getValue: getName } = nameField
 
-  const emailField = useFormField({
-    initialValue: '',
-    validators: [
-      value => {
-        if (value.length === 0) {
-          return [
-            {
-              messageType: 'error',
-              message: 'Email is required'
-            }
-          ]
-        }
-
-        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
-          return [
-            {
-              messageType: 'error',
-              message: 'Email is invalid'
-            }
-          ]
-        }
-
-        return undefined
-      }
-    ]
-  })
+  const emailField = useEmailFormField()
   const { getValue: getEmail } = emailField
 
   const messageField = useFormField({
@@ -143,6 +119,7 @@ export function ContactForm() {
         attributes={{
           onBlur: nameField.handleBlur
         }}
+        hasError={nameField.hasError}
         className="nameInput"
       />
       <FormTextInput
@@ -155,6 +132,7 @@ export function ContactForm() {
         attributes={{
           onBlur: emailField.handleBlur
         }}
+        hasError={emailField.hasError}
         className="emailInput"
       />
       <FormTextInput
@@ -167,6 +145,7 @@ export function ContactForm() {
         attributes={{
           onBlur: messageField.handleBlur
         }}
+        hasError={messageField.hasError}
         className="messageInput"
       />
       <Button className="submitBtn" type="submit" loading={isLoading}>

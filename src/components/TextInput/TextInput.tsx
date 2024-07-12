@@ -2,7 +2,7 @@ import React from 'react'
 import './TextInput.css'
 import type { InputHTMLAttributes } from 'react'
 
-export type InputType = 'text' | 'password' | 'date' | 'textarea'
+export type InputType = 'text' | 'password' | 'date' | 'textarea' | 'file'
 
 export type TextInputProps<T extends InputType> = {
   /* Custom class name */
@@ -58,6 +58,7 @@ export function TextInput<T extends InputType>({
         ${className}
         ${Boolean(value) && 'hasValue'},
         ${hasError && 'hasError'},
+        ${inputType === 'file' && 'fileInput'}
       `}
     >
       <div className="inputContainer">

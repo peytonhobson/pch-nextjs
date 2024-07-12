@@ -31,14 +31,10 @@
   height: 40px;
 }
 
-.input::placeholder {
-  color: #F1F5F8;
-  opacity: 1;
-}
-
 .input:focus {
-  outline: none;
-  border-color: #779D7F;
+  outline: 2px solid #779D7F;
+  outline-offset: 0;
+  border: none;
 }
 
 .hasError .input {
@@ -53,4 +49,10 @@
 .input:is(textarea) {
   height: unset;
   min-height: 100px;
+}
+
+.fileInput input {
+  border: none;
+  outline: none !important;
+  padding-inline: 0;
 }

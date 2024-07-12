@@ -8,6 +8,7 @@ interface ButtonProps {
   onClick?: () => void
   type?: 'button' | 'submit' | 'reset'
   loading?: boolean
+  disabled?: boolean
 }
 
 const PRIMARY_CLASS =
@@ -19,13 +20,15 @@ export function Button({
   className,
   onClick,
   type = 'button',
-  loading
+  loading,
+  disabled
 }: ButtonProps) {
   return (
     <button
       onClick={onClick}
       className={`${PRIMARY_CLASS} ${className}`}
       type={type}
+      disabled={loading || disabled}
     >
       {loading ? <SpinnerIcon /> : children}
     </button>

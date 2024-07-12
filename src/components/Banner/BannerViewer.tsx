@@ -12,8 +12,6 @@ import './BannerViewer.css'
 export function BannerViewer() {
   const { currentBannerDefinition } = useBannerManager()
 
-  console.log(currentBannerDefinition)
-
   return currentBannerDefinition ? (
     createPortal(
       <div className="banner-viewer-container">
