@@ -112,7 +112,7 @@ export default function Home() {
         a personal tour or more information."
               button={
                 <Link href="/locations">
-                  <Button className="no-underline" variant="primary">
+                  <Button className="no-underline mt-10" variant="primary">
                     Learn More
                   </Button>
                 </Link>
@@ -125,7 +125,7 @@ export default function Home() {
               description="We would like to hear from you, talk to you, and/or give you a tour of
         one of our wonderful homes."
             >
-              <div className="flex flex-col gap-8 justify-center flex-grow px-10 pb-10">
+              <div className="flex flex-col gap-8 justify-center items-center flex-grow px-10 pb-10">
                 {CONTACTS.map(contact => (
                   <ContactInfo
                     key={contact.number}

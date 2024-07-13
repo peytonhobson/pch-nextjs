@@ -96,7 +96,7 @@ export default function ServicesPage() {
             </p>
           </div>
         </div>
-        <div className="flex flex-col lg:flex-row gap-20 px-10 md:px-20 items-center justify-evenly">
+        <div className="flex flex-wrap gap-10 md:gap-20 px-10 md:px-20 items-center justify-evenly">
           <div className="prose text-default-text text-left md:max-w-xl lg:max-w-lg">
             <h2 className="text-4xl mb-5 text-center text-default-text">
               Services
@@ -115,9 +115,9 @@ export default function ServicesPage() {
               Our resident care managers have all completed and passed the
               &quot;Ensure Quality Care&quot; course through Northwest Senior
               Service. Additionally, caregivers are required to pass a 6-hour
-              dementia className, a safe medication administration course, and
-              must be CPR and First Aid certified. These measures ensure the
-              safety and well-being of our residents.
+              dementia class, a safe medication administration course, and must
+              be CPR and First Aid certified. These measures ensure the safety
+              and well-being of our residents.
             </p>
 
             <p>
@@ -136,11 +136,9 @@ export default function ServicesPage() {
               standards of care.
             </p>
           </div>
-          <Card
-            title="What We Provide"
-            className="duration-500 xl:hover:-translate-y-5 transition-all bg-white md:max-w-xl md:min-w-[25rem]"
-          >
-            <ul className="font-sans w-5/6 xl:w-full py-5 px-5 lg:px-10 xl:py-10 mx-auto">
+          <Card className="bg-white md:max-w-xl md:min-w-[25rem] p-10">
+            <h3 className="pb-5">What We Provide</h3>
+            <ul className="w-5/6 w-full">
               {SERVICE_ITEMS.map(item => (
                 <li key={item} className="text-left my-2 flex">
                   <FontAwesomeIcon

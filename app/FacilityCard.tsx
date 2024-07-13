@@ -29,10 +29,8 @@ export function FacilityCard() {
       description={currentFacility?.summary}
       alt={currentFacility?.name}
       button={
-        <Link href={`/facilities/${currentFacility?.name}`}>
-          <Button variant="primary" onClick={() => {}}>
-            Learn More
-          </Button>
+        <Link href={`/facilities/${currentFacility?.name.toLocaleLowerCase()}`}>
+          <Button variant="primary">Learn More</Button>
         </Link>
       }
     />

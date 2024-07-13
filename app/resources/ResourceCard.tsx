@@ -11,7 +11,7 @@ export function ResourceCard({
   return (
     <Card
       title={<h2 className="card-title justify-center">{title}</h2>}
-      className="my-5 lg:mx-8 px-10 pb-10"
+      className="my-5 px-10 md:px-20 pb-10"
     >
       <ul className="flex flex-col md:pb-5 list-disc gap-8">
         {resources.map(({ link, text }) => (

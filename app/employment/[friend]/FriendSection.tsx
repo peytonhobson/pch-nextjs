@@ -12,7 +12,8 @@ export function FriendSection() {
         <h2 className="mb-5">Share with a friend</h2>
         <p>
           If you know of someone searching for a job who fits the criteria of
-          employment with Premier Care Homes, please share a link to this page.
+          employment with Premier Care Homes, please send them our way. We are
+          always looking for dedicated individuals to join our team.
         </p>
       </div>
     </div>
