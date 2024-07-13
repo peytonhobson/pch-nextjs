@@ -4,7 +4,7 @@ import type { BannerProps } from './Banner'
 
 type BannerId = symbol | string
 
-export interface BannerDefinition extends BannerProps {
+interface BannerDefinition extends BannerProps {
   id: BannerId
 }
 

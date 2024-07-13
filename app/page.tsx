@@ -46,6 +46,7 @@ const CONTACTS = [
   }
 ]
 
+// ts-unused-exports:disable-next-line
 export default function Home() {
   return (
     <Fragment>
@@ -191,7 +192,6 @@ function ContactInfo({
           loading="lazy"
           height={80}
           width={80}
-          // TODO: Fix the image size
           className="rounded-full object-cover max-h-20"
           alt={personName}
         />

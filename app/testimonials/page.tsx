@@ -5,7 +5,6 @@ import { Card } from '@@/components/Card/Card'
 import { Hero } from '@@/components/Hero/Hero'
 import { testimonials } from '../../src/data/testimonials.en'
 
-// TODO: Image fetching
 // TODO: Add new testimonial
 
 const images = [
@@ -14,6 +13,7 @@ const images = [
   'https://premier-care-homes.s3.amazonaws.com/assets/other/resident-christmas-guitar-music.png'
 ]
 
+// ts-unused-exports:disable-next-line
 export default function TestimonialsPage() {
   return (
     <Fragment>
@@ -66,7 +66,7 @@ function TestimonialCard({ quote, author }: { quote: string; author: string }) {
 function ImageCard({ image, alt }: { image: string; alt: string }) {
   return (
     <Card className="h-80 my-5 w-5/6 relative overflow-hidden">
-      <NextImage src={image} fill alt={alt} />
+      <NextImage src={image} fill alt={alt} loading="lazy" />
     </Card>
   )
 }

@@ -21,6 +21,7 @@ const SERVICE_ITEMS = [
   'Hospice care'
 ]
 
+// ts-unused-exports:disable-next-line
 export default function ServicesPage() {
   return (
     <Fragment>

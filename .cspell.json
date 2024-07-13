@@ -1,0 +1,17 @@
+{
+  "ignorePaths":[
+    "tailwind.config.ts"
+  ],
+  "words": [
+    "Chemeketa",
+    "Hallet",
+    "fortawesome",
+    "fontawesome",
+    "AARP",
+    "Hibner",
+    "Leavell",
+    "gmap",
+    "mapouter",
+    "sendgrid"
+  ]
+}

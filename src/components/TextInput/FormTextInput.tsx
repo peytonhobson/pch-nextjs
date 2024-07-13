@@ -9,7 +9,7 @@ import type { InputAttributes, InputType, TextInputProps } from './TextInput'
 
 import './TextInput.css'
 
-export type FormTextInputProps<T extends InputType> = Omit<
+type FormTextInputProps<T extends InputType> = Omit<
   TextInputProps<T>,
   'label'
 > & {

@@ -19,7 +19,7 @@ export function SubmitResumeSection() {
       <div className="prose md:max-w-lg lg:max-w-xl">
         <h2 className="mb-5">Submit Your Resume</h2>
         <p>
-          You may use this form to submit your PDF resumé for consideration, or
+          You may use this form to submit your PDF resume for consideration, or
           you may send it to{' '}
           <a href="mailto:employment@premiercarehomes.net">
             employment@premiercarehomes.net

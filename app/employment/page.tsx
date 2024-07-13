@@ -4,6 +4,7 @@ import { Hero } from '@@/components/Hero/Hero'
 import { SubmitResumeSection } from './[resume]/SubmitResumeSection'
 import { FriendSection } from './[friend]/FriendSection'
 
+// ts-unused-exports:disable-next-line
 export default function EmploymentPage() {
   return (
     <Fragment>

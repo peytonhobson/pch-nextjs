@@ -4,6 +4,7 @@ import { facilities } from '@@/data/facilities.en'
 import { Hero } from '@@/components/Hero/Hero'
 import { FacilityCard } from './FacilityCard'
 
+// ts-unused-exports:disable-next-line
 export default function FacilitiesPage() {
   return (
     <Fragment>

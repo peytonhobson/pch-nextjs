@@ -2,7 +2,7 @@
 import { useState } from 'react'
 import type { useFormField } from './useFormField'
 
-export type FormFieldObject = ReturnType<typeof useFormField<any>>
+type FormFieldObject = ReturnType<typeof useFormField<any>>
 
 const DEFAULT_HAS_SUBMITTED_STATE = false
 

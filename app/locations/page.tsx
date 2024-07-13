@@ -2,6 +2,7 @@ import Head from 'next/head'
 import { Fragment } from 'react'
 import { Hero } from '@@/components/Hero/Hero'
 
+// ts-unused-exports:disable-next-line
 export default function LocationsPage() {
   return (
     <Fragment>

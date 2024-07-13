@@ -978,4 +978,5 @@ const config: Config = {
   plugins: [require('@tailwindcss/typography'), require('daisyui')]
 }
 
+// ts-unused-exports:disable-next-line
 export default config

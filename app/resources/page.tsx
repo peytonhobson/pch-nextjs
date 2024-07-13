@@ -6,7 +6,7 @@ import { ResourceCard } from './ResourceCard'
 const webLinks = [
   {
     link: 'https://dailycaring.com/what-is-a-residential-care-home/',
-    text: 'What is a Residental Care Home?'
+    text: 'What is a Residential Care Home?'
   },
   {
     link: 'https://www.veteranaid.org/',
@@ -33,6 +33,7 @@ const pdfDownloads = [
   }
 ]
 
+// ts-unused-exports:disable-next-line
 export default function ResourcesPage() {
   return (
     <Fragment>

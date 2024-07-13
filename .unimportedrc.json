@@ -1,0 +1,8 @@
+{
+  "entry": ["**/page.tsx", "./app/layout.tsx"],
+  "ignoreUnresolved": [],
+  "ignoreUnimported": ["**/page.tsx", "default"],
+  "ignoreUnused": [
+    "**/page.tsx"
+  ]
+}

@@ -2,7 +2,7 @@ import React from 'react'
 import './Banner.css'
 import type { ReactElement } from 'react'
 
-export type BannerVariants = 'success' | 'danger'
+type BannerVariants = 'success' | 'danger'
 
 export interface BannerProps {
   variant: BannerVariants

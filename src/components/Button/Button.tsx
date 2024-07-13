@@ -15,7 +15,6 @@ const PRIMARY_CLASS =
   'btn btn-block btn-md rounded-lg bg-brand-green-gray border-none hover:bg-brand-dark-green no-underline text-white'
 
 export function Button({
-  variant,
   children,
   className,
   onClick,

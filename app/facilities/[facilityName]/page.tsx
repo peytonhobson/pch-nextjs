@@ -4,6 +4,7 @@ import { FacilityCard } from '../FacilityCard'
 import { MapDirections } from './MapDirections'
 import { FacilityCarousel } from './FacilityCarousel'
 
+// ts-unused-exports:disable-next-line
 export default function FacilityPage({
   params: { facilityName }
 }: {

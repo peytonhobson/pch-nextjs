@@ -6,6 +6,7 @@ import { Card } from '@@/components/Card/Card'
 import { OwnersAndOperatorsCard } from './OwnersAndOperatorsCard'
 import { AffiliatesCard } from './AffiliatesCard'
 
+// ts-unused-exports:disable-next-line
 export default function AboutUsPage() {
   return (
     <Fragment>

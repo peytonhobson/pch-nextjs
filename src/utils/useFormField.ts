@@ -3,9 +3,9 @@ import debounce from 'lodash.debounce'
 import { useFreshState } from './useFreshState'
 import type { ReactNode } from 'react'
 
-export const MAXIMUM_PASSWORD_STRENGTH = 4
+const MAXIMUM_PASSWORD_STRENGTH = 4
 
-export type PasswordStrength = 0 | 1 | 2 | 3 | 4
+type PasswordStrength = 0 | 1 | 2 | 3 | 4
 
 export type MessageDefinition =
   | {
@@ -19,9 +19,9 @@ export type MessageDefinition =
       message?: undefined
     }
 
-export type Touched = boolean
+type Touched = boolean
 
-export type UseFormFieldParam<StateGeneric> = {
+type UseFormFieldParam<StateGeneric> = {
   initialValue: StateGeneric
   validators?: ((
     value: StateGeneric,
@@ -31,10 +31,10 @@ export type UseFormFieldParam<StateGeneric> = {
   validateOnMount?: boolean
 }
 
-export const DEFAULT_TOUCHED_STATE = false
-export const DEFAULT_HAS_ERROR_STATE = false
-export const DEFAULT_HAS_SUBMITTED_STATE = false
-export const DEFAULT_MESSAGES_STATE = undefined
+const DEFAULT_TOUCHED_STATE = false
+const DEFAULT_HAS_ERROR_STATE = false
+const DEFAULT_HAS_SUBMITTED_STATE = false
+const DEFAULT_MESSAGES_STATE = undefined
 
 /** Manage the state of a form field. Use in conjunction with `useForm` to manage form state.
  * Handles validation, touched state, and error messages. */
