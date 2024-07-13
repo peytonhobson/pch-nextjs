@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import NextImage from 'next/image'
 import { Card } from '@@/components/Card/Card'
 import type { Facility } from '@@/data/facilities.en'
 
@@ -18,10 +19,11 @@ export function FacilityCarousel({ facility }: { facility: Facility }) {
   }, [images.length, index])
 
   return (
-    <Card className="h-80 w-full md:max-w-lg lg:max-h-full rounded-none md:rounded-2xl">
-      <img
+    <Card className="h-80 w-full md:max-w-lg lg:max-h-full rounded-none md:rounded-2xl relative overflow-hidden">
+      <NextImage
         src={images[index]}
-        className="w-full h-full rounded-none md:rounded-2xl"
+        alt="Image of Premier Care Homes Facility"
+        fill
       />
     </Card>
   )

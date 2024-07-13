@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import { Fragment } from 'react'
+import NextImage from 'next/image'
 import { Hero } from '@@/components/Hero/Hero'
 import { Card } from '@@/components/Card/Card'
 import { OwnersAndOperatorsCard } from './OwnersAndOperatorsCard'
@@ -48,10 +49,12 @@ export default function AboutUsPage() {
           </div>
         </div>
         <div className="flex flex-wrap items-center gap-10 md:gap-20 justify-evenly">
-          <Card className="h-full max-w-lg overflow-hidden">
-            <img
+          <Card className="h-96 w-full max-w-lg overflow-hidden relative">
+            <NextImage
               src="https://premier-care-homes.s3.amazonaws.com/assets/other/resident-red-and-patriotic-sweaters.png"
-              className="w-full h-full object-cover"
+              className="object-cover"
+              fill
+              alt="Resident and Family in Red and Patriotic Sweaters"
               loading="lazy"
             />
           </Card>

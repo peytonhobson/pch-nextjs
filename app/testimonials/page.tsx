@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import { Fragment } from 'react'
+import NextImage from 'next/image'
 import { Card } from '@@/components/Card/Card'
 import { Hero } from '@@/components/Hero/Hero'
 import { testimonials } from '../../src/data/testimonials.en'
@@ -27,19 +28,22 @@ export default function TestimonialsPage() {
       />
       <section className="py-10 grid grid-cols-1 lg:grid-cols-3 bg-mint">
         <div className="flex flex-col col-span-1 lg:col-start-1 md:justify-center lg:justify-between items-center md:max-w-xl mx-auto">
-          <ImageCard image={images[0]} />
+          <ImageCard
+            image={images[0]}
+            alt="Resident and Family in Red and Patriotic Sweaters"
+          />
           <TestimonialCard {...testimonials[3]} />
           <TestimonialCard {...testimonials[1]} />
         </div>
         <div className="flex flex-col col-span-1 lg:col-start-2 justify-center md:justify-center lg:justify-between items-center md:max-w-xl mx-auto">
           <TestimonialCard {...testimonials[2]} />
-          <ImageCard image={images[1]} />
+          <ImageCard image={images[1]} alt="Resident Out for a Treat" />
           <TestimonialCard {...testimonials[5]} />
         </div>
         <div className="flex flex-col col-span-1 lg:col-start-3 justify-center md:justify-center lg:justify-between items-center md:max-w-xl mx-auto">
           <TestimonialCard {...testimonials[4]} />
           <TestimonialCard {...testimonials[0]} />
-          <ImageCard image={images[2]} />
+          <ImageCard image={images[2]} alt="Resident Christmas Guitar Music" />
         </div>
       </section>
     </Fragment>
@@ -59,10 +63,10 @@ function TestimonialCard({ quote, author }: { quote: string; author: string }) {
   )
 }
 
-function ImageCard({ image }: { image: string }) {
+function ImageCard({ image, alt }: { image: string; alt: string }) {
   return (
-    <Card className="h-80 my-5 w-5/6">
-      <img src={image} className="h-full w-full " />
+    <Card className="h-80 my-5 w-5/6 relative overflow-hidden">
+      <NextImage src={image} fill alt={alt} />
     </Card>
   )
 }

@@ -7,6 +7,7 @@ import {
   faPeopleCarry,
   faPeopleGroup
 } from '@fortawesome/free-solid-svg-icons'
+import NextImage from 'next/image'
 import { Button } from '@@/components/Button/Button'
 import { Hero } from '@@/components/Hero/Hero'
 import { Card } from '@@/components/Card/Card'
@@ -184,13 +185,18 @@ function ContactInfo({
 }) {
   return (
     <div className="flex items-center gap-8">
-      <div className="min-w-20 w-20 h-20 rounded-full overflow-hidden">
-        <img
+      <div>
+        <NextImage
           src={image}
-          className="mt-0 object-cover h-full w-full"
           loading="lazy"
+          height={80}
+          width={80}
+          // TODO: Fix the image size
+          className="rounded-full object-cover max-h-20"
+          alt={personName}
         />
       </div>
+
       <div className="flex flex-col gap-1">
         <div className="text-xs xl:text-sm text-left font-bold font-sans my-0">
           {personName}
