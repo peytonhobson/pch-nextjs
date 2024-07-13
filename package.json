@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "pnpm preflight && next build",
     "start": "next start",
     "lint": "next lint",
     "preflight": "unimported && ts-unused-exports ./tsconfig.json && tsc && eslint './**/*.{ts,tsx}' && cspell --no-cache './**/*.{ts,tsx,md}'"
