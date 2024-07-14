@@ -7,7 +7,7 @@
     "build": "pnpm preflight && next build",
     "start": "next start",
     "lint": "next lint",
-    "preflight": "unimported && ts-unused-exports ./tsconfig.json && tsc && eslint './**/*.{ts,tsx}' && cspell --no-cache './**/*.{ts,tsx,md}'"
+    "preflight": "unimported && ts-unused-exports ./tsconfig.json --excludePathsFromReport=.next  && tsc && eslint './**/*.{ts,tsx}' && cspell --no-cache './**/*.{ts,tsx,md}'"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.2",

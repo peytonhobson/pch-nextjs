@@ -47,6 +47,7 @@ const CONTACTS = [
   }
 ]
 
+// ts-unused-exports:disable-next-line
 export const metadata: Metadata = {
   title: 'Premier Care Homes',
   description: 'When only the best will do.'
