@@ -3,6 +3,6 @@
   "ignoreUnresolved": [],
   "ignoreUnimported": ["**/page.tsx", "default"],
   "ignoreUnused": [
-    "**/page.tsx"
+    "sharp"
   ]
 }

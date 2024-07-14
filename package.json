@@ -3,8 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "NODE_OPTIONS='--inspect' next dev",
+    "dev": "next dev",
     "build": "pnpm preflight && next build",
+    "build-analyze": "next build --experimental-debug-memory-usage",
     "start": "next start",
     "lint": "next lint",
     "preflight": "unimported && ts-unused-exports ./tsconfig.json --excludePathsFromReport=.next  && tsc && eslint './**/*.{ts,tsx}' && cspell --no-cache './**/*.{ts,tsx,md}'"

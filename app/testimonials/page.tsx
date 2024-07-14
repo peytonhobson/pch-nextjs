@@ -1,4 +1,3 @@
-import Head from 'next/head'
 import { Fragment } from 'react'
 import NextImage from 'next/image'
 import { Card } from '@@/components/Card/Card'
