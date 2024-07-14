@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import Link from 'next/link'
-import Head from 'next/head'
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faBriefcaseMedical,
@@ -57,14 +57,6 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <Fragment>
-      <Head>
-        <title>Premier Care Homes</title>
-        {/* TODO: Metadata schema */}
-        <meta
-          name="description"
-          content="Premier Care Homes - When only the best will do."
-        />
-      </Head>
       <Hero
         title="WHEN ONLY THE BEST WILL DO"
         image="https://premier-care-homes.s3.amazonaws.com/assets/other/landing-hero.jpg"

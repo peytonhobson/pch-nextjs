@@ -4,6 +4,7 @@ import NextImage from 'next/image'
 import { Card } from '@@/components/Card/Card'
 import { Hero } from '@@/components/Hero/Hero'
 import { testimonials } from '../../src/data/testimonials.en'
+import type { Metadata } from 'next'
 
 // TODO: Add new testimonial
 
@@ -14,13 +15,15 @@ const images = [
 ]
 
 // ts-unused-exports:disable-next-line
+export const metadata: Metadata = {
+  title: 'Premier Care Homes',
+  description: 'When only the best will do.'
+}
+
+// ts-unused-exports:disable-next-line
 export default function TestimonialsPage() {
   return (
     <Fragment>
-      {/* TODO: Configure Head */}
-      <Head>
-        <title>Testimonials</title>
-      </Head>
       <Hero
         image="https://premier-care-homes.s3.amazonaws.com/assets/other/testimonials-hero.jpg"
         title="TESTIMONIALS"

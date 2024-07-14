@@ -1,21 +1,19 @@
-import Head from 'next/head'
 import { Fragment } from 'react'
 import { facilities } from '@@/data/facilities.en'
 import { Hero } from '@@/components/Hero/Hero'
 import { FacilityCard } from './FacilityCard'
+import type { Metadata } from 'next'
+
+// ts-unused-exports:disable-next-line
+export const metadata: Metadata = {
+  title: 'Premier Care Homes',
+  description: 'When only the best will do.'
+}
 
 // ts-unused-exports:disable-next-line
 export default function FacilitiesPage() {
   return (
     <Fragment>
-      <Head>
-        <title>Premier Care Homes</title>
-
-        <meta
-          name="description"
-          content="Premier Care Homes - When only the best will do."
-        />
-      </Head>
       <Hero
         title="FACILITIES"
         text="Elegant Living Spaces Tailored for Exceptional Care"

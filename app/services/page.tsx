@@ -1,9 +1,9 @@
-import Head from 'next/head'
 import { Fragment } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheck } from '@fortawesome/free-solid-svg-icons'
 import { Hero } from '@@/components/Hero/Hero'
 import { Card } from '@@/components/Card/Card'
+import type { Metadata } from 'next'
 
 const SERVICE_ITEMS = [
   'A homelike setting with 24 hour direct care staff, 5:1 resident to caregiver ratio',
@@ -22,18 +22,15 @@ const SERVICE_ITEMS = [
 ]
 
 // ts-unused-exports:disable-next-line
+export const metadata: Metadata = {
+  title: 'Premier Care Homes',
+  description: 'When only the best will do.'
+}
+
+// ts-unused-exports:disable-next-line
 export default function ServicesPage() {
   return (
     <Fragment>
-      <Head>
-        <title>Premier Care Homes</title>
-        {/* TODO: Metadata schema */}
-        <meta
-          name="description"
-          content="Premier Care Homes - When only the best will do."
-        />
-      </Head>
-      {/* TODO: Hero Image */}
       <Hero
         title="SERVICES & COST"
         text="Exceptional, professional care for your loved one in a compassionate, home environment."

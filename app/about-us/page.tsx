@@ -1,22 +1,21 @@
-import Head from 'next/head'
 import { Fragment } from 'react'
 import NextImage from 'next/image'
 import { Hero } from '@@/components/Hero/Hero'
 import { Card } from '@@/components/Card/Card'
 import { OwnersAndOperatorsCard } from './OwnersAndOperatorsCard'
 import { AffiliatesCard } from './AffiliatesCard'
+import type { Metadata } from 'next'
+
+// ts-unused-exports:disable-next-line
+export const metadata: Metadata = {
+  title: 'Premier Care Homes',
+  description: 'When only the best will do.'
+}
 
 // ts-unused-exports:disable-next-line
 export default function AboutUsPage() {
   return (
     <Fragment>
-      <Head>
-        <title>About Us | Premier Care Homes</title>
-        <meta
-          name="description"
-          content="Meet the team behind the care at Premier Care Homes."
-        />
-      </Head>
       <Hero
         image="https://premier-care-homes.s3.amazonaws.com/assets/other/aboutus-hero.jpg"
         title="ABOUT US"

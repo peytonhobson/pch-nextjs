@@ -1,17 +1,19 @@
-import Head from 'next/head'
 import { Fragment } from 'react'
 import { Hero } from '@@/components/Hero/Hero'
 import { SubmitResumeSection } from './[resume]/SubmitResumeSection'
 import { FriendSection } from './[friend]/FriendSection'
+import type { Metadata } from 'next'
+
+// ts-unused-exports:disable-next-line
+export const metadata: Metadata = {
+  title: 'Premier Care Homes',
+  description: 'When only the best will do.'
+}
 
 // ts-unused-exports:disable-next-line
 export default function EmploymentPage() {
   return (
     <Fragment>
-      <Head>
-        <title>Employment</title>
-      </Head>
-
       <Hero
         title="EMPLOYMENT"
         text="Premier Care Homes is always accepting applications and looking to hire exceptional staff members to complement our highly qualified family of personnel. If you or someone you know meet the following requirements and are looking to join our team, please contact us."

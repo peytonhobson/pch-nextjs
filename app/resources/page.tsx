@@ -1,7 +1,7 @@
-import Head from 'next/head'
 import { Fragment } from 'react'
 import { Hero } from '@@/components/Hero/Hero'
 import { ResourceCard } from './ResourceCard'
+import type { Metadata } from 'next'
 
 const webLinks = [
   {
@@ -34,12 +34,15 @@ const pdfDownloads = [
 ]
 
 // ts-unused-exports:disable-next-line
+export const metadata: Metadata = {
+  title: 'Premier Care Homes',
+  description: 'When only the best will do.'
+}
+
+// ts-unused-exports:disable-next-line
 export default function ResourcesPage() {
   return (
     <Fragment>
-      <Head>
-        <title>Resources</title>
-      </Head>
       <Hero
         image="https://premier-care-homes.s3.amazonaws.com/assets/other/resources-hero.jpg"
         title="RESOURCES"

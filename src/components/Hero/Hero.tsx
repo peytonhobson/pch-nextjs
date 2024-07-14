@@ -14,7 +14,7 @@ export function Hero({ image, title, text, children }: HeroProps) {
   console.log(image)
 
   return (
-    <div className="hero h-screen lg:min-h-96 relative hero-overlay overflow-hidden w-full relative">
+    <div className="hero h-screen lg:min-h-96 relative hero-overlay overflow-hidden w-full relative bg-white">
       <NextImage
         src={image}
         alt="Hero"
