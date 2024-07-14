@@ -14,6 +14,7 @@ import { Card } from '@@/components/Card/Card'
 import { FacilityCard } from './FacilityCard'
 import LearnMoreButton from './LearnMoreButton'
 import { ContactFormContainer } from './ContactFormContainer'
+import type { Metadata } from 'next'
 import type { IconProp } from '@fortawesome/fontawesome-svg-core'
 
 const CONTACTS = [
@@ -45,6 +46,11 @@ const CONTACTS = [
       'https://premier-care-homes.s3.amazonaws.com/headshot/scott_headshot.jpeg'
   }
 ]
+
+export const metadata: Metadata = {
+  title: 'Premier Care Homes',
+  description: 'When only the best will do.'
+}
 
 // ts-unused-exports:disable-next-line
 export default function Home() {
