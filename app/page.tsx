@@ -65,7 +65,6 @@ export default function Home() {
           content="Premier Care Homes - When only the best will do."
         />
       </Head>
-      {/* TODO: Hero Image */}
       <Hero
         title="WHEN ONLY THE BEST WILL DO"
         image="https://premier-care-homes.s3.amazonaws.com/assets/other/landing-hero.jpg"
