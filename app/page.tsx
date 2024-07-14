@@ -183,7 +183,7 @@ function ContactInfo({
   email: string
 }) {
   return (
-    <div className="flex items-center gap-8">
+    <div className="flex items-center w-full gap-8">
       <div>
         <NextImage
           src={image}
