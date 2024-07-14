@@ -11,8 +11,6 @@ interface HeroProps {
 }
 
 export function Hero({ image, title, text, children }: HeroProps) {
-  console.log(image)
-
   return (
     <div className="hero h-screen lg:min-h-96 relative hero-overlay overflow-hidden w-full relative bg-white">
       <NextImage
@@ -22,7 +20,7 @@ export function Hero({ image, title, text, children }: HeroProps) {
         rel="preload"
         loading="eager"
         fill
-        onError={error => console.log(error)}
+        priority
       />
       <div className="hero-content w-full px-10 text-center text-neutral-content absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
         <div className="flex flex-col items-center justify-center">
