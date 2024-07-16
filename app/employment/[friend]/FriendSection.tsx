@@ -1,11 +1,14 @@
 import { Card } from '@@/components/Card/Card'
+import { BannerManager } from '@@/components/Banner/BannerManager'
 import { FriendForm } from './FriendForm'
 
 export function FriendSection() {
   return (
     <div className="flex flex-wrap-reverse items-center gap-10 md:gap-20 justify-evenly">
       <Card className="max-w-lg w-full h-full px-8 flex flex-col gap-8 p-8">
-        <FriendForm />
+        <BannerManager>
+          <FriendForm />
+        </BannerManager>
       </Card>
 
       <div className="prose md:max-w-lg lg:max-w-xl">

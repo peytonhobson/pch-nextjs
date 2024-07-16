@@ -7,6 +7,7 @@ import { FormTextInput } from '@@/components/TextInput/FormTextInput'
 import { useEmailFormField } from '@@/utils/useEmailFormField'
 import { useForm } from '@@/utils/useForm'
 import { useFormField } from '@@/utils/useFormField'
+import { BannerViewer } from '@@/components/Banner/BannerViewer'
 import { shareWithFriendAction } from './shareWithFriendAction'
 
 export function FriendForm() {
@@ -110,6 +111,7 @@ export function FriendForm() {
 
   return (
     <form onSubmit={handleSubmit}>
+      <BannerViewer />
       <FormTextInput
         id="your-name"
         label="Your Name"

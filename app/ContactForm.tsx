@@ -7,6 +7,7 @@ import { useForm } from '@@/utils/useForm'
 import { useFormField } from '@@/utils/useFormField'
 import { useBannerManager } from '@@/components/Banner/useBannerManager'
 import { useEmailFormField } from '@@/utils/useEmailFormField'
+import { BannerViewer } from '@@/components/Banner/BannerViewer'
 import { contactEmailAction } from './contactEmailAction'
 
 export function ContactForm() {
@@ -66,7 +67,6 @@ export function ContactForm() {
 
       const formIsValid = preSubmitCheck()
 
-      // TODO: useCallback and test this
       if (formIsValid) {
         setIsLoading(true)
 
@@ -109,6 +109,7 @@ export function ContactForm() {
 
   return (
     <form className="w-full" onSubmit={handleSubmit}>
+      <BannerViewer />
       <FormTextInput
         inputType="text"
         id="nameInput"

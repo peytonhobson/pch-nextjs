@@ -22,8 +22,7 @@ export async function contactEmailAction({
     from: 'peyton.hobson1@gmail.com',
     personalizations: [
       {
-        // TODO: Put as 'premiercarehomes@comcast.net'
-        to: 'peyton.hobson1@gmail.com',
+        to: 'premiercarehomes@comcast.net',
         dynamic_template_data: {
           name: senderName,
           email: email,

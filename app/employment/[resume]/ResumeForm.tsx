@@ -7,6 +7,7 @@ import { useEmailFormField } from '@@/utils/useEmailFormField'
 import { useForm } from '@@/utils/useForm'
 import { useFormField } from '@@/utils/useFormField'
 import { useBannerManager } from '@@/components/Banner/useBannerManager'
+import { BannerViewer } from '@@/components/Banner/BannerViewer'
 import { submitResumeAction } from './submitResumeAction'
 
 export function ResumeForm() {
@@ -166,6 +167,7 @@ export function ResumeForm() {
 
   return (
     <form onSubmit={handleSubmit}>
+      <BannerViewer />
       <FormTextInput
         id="full-name"
         label="Full Name"

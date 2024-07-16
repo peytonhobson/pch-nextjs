@@ -30,8 +30,7 @@ export async function submitResumeAction({
     ],
     personalizations: [
       {
-        // to: 'premiercarehomes@comcast.net',
-        to: 'peyton.hobson1@gmail.com',
+        to: 'premiercarehomes@comcast.net',
         dynamic_template_data: {
           name: senderName,
           email: email,

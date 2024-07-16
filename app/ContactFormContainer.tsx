@@ -1,3 +1,4 @@
+import { BannerManager } from '@@/components/Banner/BannerManager'
 import { ContactForm } from './ContactForm'
 
 export function ContactFormContainer() {
@@ -6,7 +7,9 @@ export function ContactFormContainer() {
       <h2 className="font-bold text-4xl text-center pb-10">
         Questions? Contact Us.
       </h2>
-      <ContactForm />
+      <BannerManager>
+        <ContactForm />
+      </BannerManager>
     </div>
   )
 }
