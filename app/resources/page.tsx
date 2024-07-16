@@ -35,8 +35,8 @@ const pdfDownloads = [
 
 // ts-unused-exports:disable-next-line
 export const metadata: Metadata = {
-  title: 'Premier Care Homes',
-  description: 'When only the best will do.'
+  title: 'Resources for Senior Care | Premier Care Homes in Salem, Oregon',
+  description: `Access valuable resources for senior care at Premier Care Homes in Salem, Oregon. Explore web links and PDF downloads on topics like residential care homes, veterans' financial assistance, and adult foster care. Find comprehensive guides and fact sheets to help you navigate senior care options. Visit us to learn more.`
 }
 
 // ts-unused-exports:disable-next-line

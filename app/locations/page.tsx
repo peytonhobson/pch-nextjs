@@ -4,8 +4,10 @@ import type { Metadata } from 'next'
 
 // ts-unused-exports:disable-next-line
 export const metadata: Metadata = {
-  title: 'Premier Care Homes',
-  description: 'When only the best will do.'
+  title:
+    'Premier Care Homes Locations | Find a Care Home Near You in Salem, Oregon',
+  description:
+    'Locate Premier Care Homes facilities in Salem, Oregon. We offer a range of residential care homes, each providing personalized and compassionate care for seniors. Explore our locations to find the nearest home and learn more about the unique features and services available at each site. Contact us for more information or to schedule a visit.'
 }
 
 // ts-unused-exports:disable-next-line

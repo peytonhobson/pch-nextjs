@@ -23,8 +23,10 @@ const SERVICE_ITEMS = [
 
 // ts-unused-exports:disable-next-line
 export const metadata: Metadata = {
-  title: 'Premier Care Homes',
-  description: 'When only the best will do.'
+  title:
+    'Premier Care Homes Services | Quality Residential Care in Salem, Oregon',
+  description:
+    'Explore the comprehensive services offered by Premier Care Homes in Salem, Oregon. Our experienced care team provides personalized, dignified care with a 5:1 resident-to-caregiver ratio. Services include medication management, home-cooked meals, personal care assistance, and specialized diets. Contact us to learn more about our affordable rates and exceptional care.'
 }
 
 // ts-unused-exports:disable-next-line

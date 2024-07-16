@@ -6,8 +6,10 @@ import type { Metadata } from 'next'
 
 // ts-unused-exports:disable-next-line
 export const metadata: Metadata = {
-  title: 'Premier Care Homes',
-  description: 'When only the best will do.'
+  title:
+    'Employment at Premier Care Homes | Join Our Caring Team in Salem, Oregon',
+  description:
+    'Premier Care Homes in Salem, Oregon, is hiring compassionate and dedicated caregivers. If you have two years of caregiving experience, a clean background check, and a caring nature, apply now to join our exceptional team. Submit your resume online or email it to employment@premiercarehomes.net. Explore career opportunities with us today!'
 }
 
 // ts-unused-exports:disable-next-line

@@ -15,8 +15,8 @@ const images = [
 
 // ts-unused-exports:disable-next-line
 export const metadata: Metadata = {
-  title: 'Premier Care Homes',
-  description: 'When only the best will do.'
+  title: 'Premier Care Homes Testimonials | Heartfelt Reviews from Families',
+  description: `Read genuine testimonials from families who have experienced the compassionate care at Premier Care Homes in Salem, Oregon. Discover stories of trust, kindness, and exceptional service that highlight our commitment to providing personalized and dignified residential care. Visit us to learn more about our residents' positive experiences.`
 }
 
 // ts-unused-exports:disable-next-line

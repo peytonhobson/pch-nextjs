@@ -49,8 +49,9 @@ const CONTACTS = [
 
 // ts-unused-exports:disable-next-line
 export const metadata: Metadata = {
-  title: 'Premier Care Homes',
-  description: 'When only the best will do.'
+  title: 'Premier Care Homes | Personalized Residential Care in Salem, Oregon',
+  description:
+    'Discover Premier Care Homes in Salem, Oregon, where professional care meets comfort. Operated by experienced physical therapists and paramedics, we offer a high caregiver-to-resident ratio, ensuring personalized attention for each resident. Explore our serene facilities and contact us for a personal tour today.'
 }
 
 // ts-unused-exports:disable-next-line

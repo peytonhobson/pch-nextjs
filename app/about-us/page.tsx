@@ -8,8 +8,9 @@ import type { Metadata } from 'next'
 
 // ts-unused-exports:disable-next-line
 export const metadata: Metadata = {
-  title: 'Premier Care Homes',
-  description: 'When only the best will do.'
+  title: 'About Premier Care Homes | Experienced Senior Care in Salem, Oregon',
+  description:
+    'Meet the dedicated team behind Premier Care Homes in Salem, Oregon. Founded by Janelle Leavell and Margie Hibner, experienced physical therapists, and Scott Leavell, a seasoned paramedic, our team provides exceptional care with a passion for senior well-being. Learn more about our commitment to creating a secure and respectful environment for our residents.'
 }
 
 // ts-unused-exports:disable-next-line
@@ -28,10 +29,10 @@ export default function AboutUsPage() {
           <div className="prose md:max-w-lg lg:max-w-xl">
             <h2 className="mb-5">Owners and Operators</h2>
             <p>
-              Janelle LeFore, P.T., and Margie Hibner, P.T., bring over 30 years
-              of combined experience as physical therapists in various senior
-              care settings. Since 2008, they have owned and operated Adult
-              Foster Care Homes, driven by their unwavering passion and
+              Janelle Leavell, P.T., and Margie Hibner, P.T., bring over 30
+              years of combined experience as physical therapists in various
+              senior care settings. Since 2008, they have owned and operated
+              Adult Foster Care Homes, driven by their unwavering passion and
               dedication to senior care.
             </p>
           </div>
