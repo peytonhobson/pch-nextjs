@@ -3,6 +3,13 @@ import { facilities } from '@@/data/facilities.en'
 import { FacilityCard } from '../FacilityCard'
 import { MapDirections } from './MapDirections'
 import { FacilityCarousel } from './FacilityCarousel'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title:
+    'Premier Care Homes Facilities | Quality Residential Care in Salem, Oregon',
+  description: `Discover the quality residential care facilities at Premier Care Homes in Salem, Oregon. Each of our homes, including Baxter, Hallet, Madrona, and Trapper, offers personalized and compassionate care tailored to meet the needs of our residents. Learn more about our serene living environments and high caregiver-to-resident ratio. Contact us to schedule a visit and see why families trust us with their loved ones' care.`
+}
 
 // ts-unused-exports:disable-next-line
 export default function FacilityPage({
@@ -10,8 +17,6 @@ export default function FacilityPage({
 }: {
   params: { facilityName: string }
 }) {
-  console.log(facilityName)
-
   const facility = facilities.find(f => f.name.toLowerCase() === facilityName)
 
   const otherFacilities = facilities.filter(
