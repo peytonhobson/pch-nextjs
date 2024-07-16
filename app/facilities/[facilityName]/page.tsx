@@ -5,6 +5,7 @@ import { MapDirections } from './MapDirections'
 import { FacilityCarousel } from './FacilityCarousel'
 import type { Metadata } from 'next'
 
+// ts-unused-exports:disable-next-line
 export const metadata: Metadata = {
   title:
     'Premier Care Homes Facilities | Quality Residential Care in Salem, Oregon',
