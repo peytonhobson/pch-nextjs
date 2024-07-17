@@ -30,8 +30,8 @@ export function Card({
     <div
       className={`shadow-2xl bg-white rounded-2xl max-h-full overflow-hidden ${className}`}
     >
-      <div className="w-full h-2/5 relative rounded-t-2xl overflow-hidden">
-        {image !== undefined && (
+      {image !== undefined && (
+        <div className="w-full h-2/5 relative rounded-t-2xl overflow-hidden">
           <ImageComponent
             src={image}
             alt={alt}
@@ -39,8 +39,8 @@ export function Card({
             loading="lazy"
             fill
           />
-        )}
-      </div>
+        </div>
+      )}
 
       {(title || description || button) && (
         <div className="flex flex-col flex-grow justify-between pb-10 px-10">
