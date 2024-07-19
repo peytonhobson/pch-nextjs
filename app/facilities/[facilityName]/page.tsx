@@ -40,8 +40,8 @@ export default function FacilityPage({
           <MapDirections locationLink={facility.location} />
         </div>
       </div>
-      <section className=" pt-12">
-        <h2 className="text-4xl font-semibold text-center">
+      <section className="pt-12">
+        <h2 className="w-5/6 w-auto text-4xl font-semibold text-center">
           See Our Other Facilities
         </h2>
         <div className="flex flex-wrap justify-around pt-5 pb-10 show-on-scroll">
