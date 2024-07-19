@@ -9,7 +9,7 @@ export function FacilityCard({ facility }: { facility: Facility }) {
       className="w-5/6 md:w-2/5 xl:h-60 my-10 hover:cursor-pointer"
     >
       <div className="card lg:card-side bg-white shadow-xl h-full duration-500 hover:-translate-y-3 transition-all overflow-hidden">
-        <div className="lg:w-full relative">
+        <div className="lg:w-full lg:h-full relative min-h-[175px] lg:min-h-auto">
           <NextImage
             src={facility.images[0]}
             className="object-cover"
