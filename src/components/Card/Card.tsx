@@ -5,6 +5,7 @@ export function Card({
   children,
   image,
   imageLoading = 'lazy',
+  onImageLoad,
   alt,
   title,
   description,
@@ -19,11 +20,13 @@ export function Card({
   | {
       image: string
       imageLoading?: 'eager' | 'lazy'
+      onImageLoad?: () => void
       alt: string
     }
   | {
       image?: undefined
       imageLoading?: undefined
+      onImageLoad?: undefined
       alt?: undefined
     }
 )) {
@@ -40,6 +43,7 @@ export function Card({
             alt={alt}
             className="object-cover"
             loading={imageLoading}
+            onLoad={onImageLoad}
             fill
           />
         </div>
