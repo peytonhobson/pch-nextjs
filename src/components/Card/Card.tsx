@@ -37,7 +37,7 @@ export function Card({
       className={`shadow-2xl bg-white rounded-2xl max-h-full overflow-hidden ${className}`}
     >
       {image !== undefined && (
-        <div className="w-full h-2/5 relative rounded-t-2xl overflow-hidden">
+        <div className="w-full h-[216px] relative rounded-t-2xl overflow-hidden">
           <ImageComponent
             src={image}
             alt={alt}

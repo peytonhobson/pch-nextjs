@@ -23,7 +23,7 @@ export function FacilityCard() {
 
   return (
     <Card
-      className="md:max-w-md w-full md:w-2/5 lg:w-2/7 flex flex-col md:min-w-[23rem] min-h-128"
+      className="md:max-w-md w-full md:w-2/5 lg:w-2/7 flex flex-col md:min-w-[23rem] "
       image={IMAGE_LINKS[index]}
       imageLoading="eager"
       onImageLoad={useCallback(
@@ -35,7 +35,9 @@ export function FacilityCard() {
       alt={currentFacility?.name}
       button={
         <Link href={`/facilities/${currentFacility?.name.toLocaleLowerCase()}`}>
-          <Button variant="primary">Learn More</Button>
+          <Button variant="primary" className="mt-10">
+            Learn More
+          </Button>
         </Link>
       }
     />
