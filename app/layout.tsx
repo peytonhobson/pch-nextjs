@@ -1,3 +1,4 @@
+import { GoogleAnalytics } from '@next/third-parties/google'
 import { Footer } from '../src/components/Footer/Footer'
 import { MainNav } from '../src/components/MainNav/MainNav'
 import '../public/globals.css'
@@ -17,6 +18,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <Footer />
         </main>
       </body>
+      <GoogleAnalytics gaId="G-ET3W75J93L" />
     </html>
   )
 }
