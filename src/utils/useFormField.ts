@@ -103,13 +103,13 @@ export function useFormField<StateGeneric>({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const validateDebounced = useCallback(
-    () =>
-      debounce(() => {
-        if (getTouched()) {
-          validateNow()
-        }
-      }, validationDebounceMS ?? 500)(),
+    debounce(() => {
+      if (getTouched()) {
+        validateNow()
+      }
+    }, validationDebounceMS ?? 500),
     [getTouched, validateNow, validationDebounceMS]
   )
 

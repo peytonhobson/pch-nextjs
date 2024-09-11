@@ -29,6 +29,7 @@ export function HeaderBackground({ children }: { children: React.ReactNode }) {
     if (window.scrollY > 10) setTransparentBackground(false)
 
     window.addEventListener('scroll', handleScroll)
+
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 

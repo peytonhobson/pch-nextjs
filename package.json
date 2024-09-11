@@ -19,8 +19,7 @@
     "lodash.debounce": "^4.0.8",
     "next": "14.2.4",
     "react": "^18",
-    "react-dom": "^18",
-    "sharp": "^0.33.4"
+    "react-dom": "^18"
   },
   "devDependencies": {
     "@crossingminds/eslint-config": "^0.3.4",
