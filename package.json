@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "pnpm preflight && next build",
     "build-analyze": "next build --experimental-debug-memory-usage",
-    "start": "NODE_OPTIONS='--inspect' next start",
+    "start": "next start",
     "lint": "next lint",
     "preflight": "unimported && ts-unused-exports ./tsconfig.json --excludePathsFromReport=.next  && tsc && eslint './**/*.{ts,tsx}' && cspell --no-cache --no-progress './**/*.{ts,tsx,md}'"
   },
