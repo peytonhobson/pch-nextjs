@@ -6,9 +6,9 @@
     "dev": "next dev",
     "build": "pnpm preflight && next build",
     "build-analyze": "next build --experimental-debug-memory-usage",
-    "start": "next start",
+    "start": "NODE_OPTIONS='--inspect' next start",
     "lint": "next lint",
-    "preflight": "unimported && ts-unused-exports ./tsconfig.json --excludePathsFromReport=.next  && tsc && eslint './**/*.{ts,tsx}' && cspell --no-cache './**/*.{ts,tsx,md}'"
+    "preflight": "unimported && ts-unused-exports ./tsconfig.json --excludePathsFromReport=.next  && tsc && eslint './**/*.{ts,tsx}' && cspell --no-cache --no-progress './**/*.{ts,tsx,md}'"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.2",
@@ -17,7 +17,7 @@
     "@next/third-parties": "^14.2.7",
     "@sendgrid/mail": "^8.1.3",
     "lodash.debounce": "^4.0.8",
-    "next": "14.2.4",
+    "next": "14.2.11",
     "react": "^18",
     "react-dom": "^18",
     "sharp": "^0.33.5"
