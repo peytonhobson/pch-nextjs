@@ -1,6 +1,6 @@
 import { Fragment } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCheck } from '@fortawesome/free-solid-svg-icons'
+import { faCheck } from '@fortawesome/free-solid-svg-icons/faCheck'
 import { Hero } from '@@/components/Hero/Hero'
 import { Card } from '@@/components/Card/Card'
 import type { Metadata } from 'next'

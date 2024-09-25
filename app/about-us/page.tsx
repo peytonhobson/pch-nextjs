@@ -50,11 +50,11 @@ export default function AboutUsPage() {
           </div>
         </div>
         <div className="flex flex-wrap items-center gap-10 md:gap-20 justify-evenly">
-          <Card className="h-96 w-full max-w-lg overflow-hidden relative">
+          <Card className="aspect-[4/3] w-full max-w-lg overflow-hidden relative">
             <NextImage
               src="https://premier-care-homes.s3.amazonaws.com/assets/other/resident-red-and-patriotic-sweaters.png"
-              className="object-cover"
               fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
               alt="Resident and Family in Red and Patriotic Sweaters"
               loading="lazy"
             />

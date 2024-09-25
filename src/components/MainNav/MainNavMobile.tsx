@@ -4,7 +4,7 @@ import { Fragment, useCallback } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars } from '@fortawesome/free-solid-svg-icons'
+import { faBars } from '@fortawesome/free-solid-svg-icons/faBars'
 import { useHeader } from './HeaderBackground'
 
 export const PAGE_LIST = [

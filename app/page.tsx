@@ -2,11 +2,9 @@ import React, { Fragment } from 'react'
 import Link from 'next/link'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {
-  faBriefcaseMedical,
-  faPeopleCarry,
-  faPeopleGroup
-} from '@fortawesome/free-solid-svg-icons'
+import { faBriefcaseMedical } from '@fortawesome/free-solid-svg-icons/faBriefcaseMedical'
+import { faPeopleCarry } from '@fortawesome/free-solid-svg-icons/faPeopleCarry'
+import { faPeopleGroup } from '@fortawesome/free-solid-svg-icons/faPeopleGroup'
 import NextImage from 'next/image'
 import { Button } from '@@/components/Button/Button'
 import { Hero } from '@@/components/Hero/Hero'

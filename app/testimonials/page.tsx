@@ -68,7 +68,13 @@ function TestimonialCard({ quote, author }: { quote: string; author: string }) {
 function ImageCard({ image, alt }: { image: string; alt: string }) {
   return (
     <Card className="h-80 my-5 w-5/6 relative overflow-hidden">
-      <NextImage src={image} fill alt={alt} loading="lazy" />
+      <NextImage
+        src={image}
+        fill
+        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 60vw, 33vw"
+        alt={alt}
+        loading="lazy"
+      />
     </Card>
   )
 }
