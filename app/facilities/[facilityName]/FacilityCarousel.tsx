@@ -24,6 +24,7 @@ export function FacilityCarousel({ facility }: { facility: Facility }) {
         src={images[index]}
         alt="Image of Premier Care Homes Facility"
         fill
+        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 40vw, 30vw"
       />
     </Card>
   )

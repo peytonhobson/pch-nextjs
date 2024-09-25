@@ -22,6 +22,7 @@ export function Hero({ image, title, text, children }: HeroProps) {
         rel="preload"
         loading="eager"
         fill
+        sizes="100vw"
         priority
         onLoad={() => setImageLoaded(true)}
       />

@@ -12,6 +12,7 @@ export function FacilityCard({ facility }: { facility: Facility }) {
         <div className="lg:w-full lg:h-full relative min-h-[175px] lg:min-h-auto">
           <NextImage
             src={facility.images[0]}
+            loading="lazy"
             className="object-cover"
             fill
             alt="Image of Premier Care Homes Facility"

@@ -25,11 +25,14 @@ export function FacilityCard() {
     <Card
       className="md:max-w-md w-full md:w-2/5 lg:w-2/7 flex flex-col md:min-w-[23rem] "
       image={IMAGE_LINKS[index]}
-      imageLoading="eager"
+      imageLoading="lazy"
       onImageLoad={useCallback(
         () => setCurrentFacility(facilities[index]),
         [index]
       )}
+      imageProps={{
+        sizes: '(max-width: 768px) 100vw, (max-width: 1024px) 40vw, 30vw'
+      }}
       title={`Facilities - ${currentFacility?.name}`}
       description={currentFacility?.summary}
       alt={currentFacility?.name}

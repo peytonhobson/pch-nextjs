@@ -10,6 +10,7 @@ export function Footer() {
             src="https://premier-care-homes.s3.amazonaws.com/assets/other/premier-care-homes-logo1.png"
             height={80}
             width={250}
+            loading="lazy"
             alt="Premier Care Homes Logo"
           />
         </Link>

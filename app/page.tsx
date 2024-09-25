@@ -106,6 +106,11 @@ export default function Home() {
               className="md:max-w-md md:w-2/5 lg:w-2/7 flex flex-col md:min-w-[23rem] min-h-128"
               title="Locations"
               image="https://premier-care-homes.s3.amazonaws.com/assets/other/locations-teaser.jpg"
+              imageLoading="lazy"
+              imageProps={{
+                sizes:
+                  '(max-width: 768px) 100vw, (max-width: 1024px) 40vw, 30vw'
+              }}
               alt="Google Maps image of Salem, Oregon"
               description="See where our homes are located throughout Salem, Oregon. Contact us for
         a personal tour or more information."
@@ -182,17 +187,17 @@ function ContactInfo({
   email: string
 }) {
   return (
-    <div className="flex items-center w-full gap-8">
-      <div>
-        <NextImage
-          src={image}
-          loading="lazy"
-          height={80}
-          width={80}
-          className="rounded-full object-cover max-h-20"
-          alt={personName}
-        />
-      </div>
+    <div className="flex items-center w-full gap-4 md:gap-6">
+      <NextImage
+        src={image}
+        loading="lazy"
+        height={80}
+        width={80}
+        className={`rounded-full max-h-20 max-w-20 ${
+          personName !== 'Margie Hibner' && 'object-cover'
+        }`}
+        alt={personName}
+      />
 
       <div className="flex flex-col gap-1">
         <div className="text-xs xl:text-sm text-left font-bold font-sans my-0">

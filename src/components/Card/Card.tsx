@@ -6,6 +6,7 @@ export function Card({
   image,
   imageLoading = 'lazy',
   onImageLoad,
+  imageProps,
   alt,
   title,
   description,
@@ -21,12 +22,14 @@ export function Card({
       image: string
       imageLoading?: 'eager' | 'lazy'
       onImageLoad?: () => void
+      imageProps?: Partial<Omit<Parameters<typeof NextImage>[0], 'ref'>>
       alt: string
     }
   | {
       image?: undefined
       imageLoading?: undefined
       onImageLoad?: undefined
+      imageProps?: undefined
       alt?: undefined
     }
 )) {
@@ -39,6 +42,7 @@ export function Card({
       {image !== undefined && (
         <div className="w-full h-[216px] relative rounded-t-2xl overflow-hidden">
           <ImageComponent
+            {...imageProps}
             src={image}
             alt={alt}
             className="object-cover"
