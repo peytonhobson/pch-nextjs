@@ -26,6 +26,8 @@ export default function FacilityPage({
 
   if (facility === undefined) return <Fragment />
 
+  console.count(`Navigated to ${facilityName}`)
+
   // TODO: Move some of this to layout.js
   return (
     <div className="pt-[96px] bg-mint">

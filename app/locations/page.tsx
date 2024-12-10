@@ -12,6 +12,8 @@ export const metadata: Metadata = {
 
 // ts-unused-exports:disable-next-line
 export default function LocationsPage() {
+  console.count('Navigated to Locations')
+
   return (
     <Fragment>
       <Hero

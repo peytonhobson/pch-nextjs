@@ -15,6 +15,8 @@ export const metadata: Metadata = {
 
 // ts-unused-exports:disable-next-line
 export default function AboutUsPage() {
+  console.count('Navigated to About Us')
+
   return (
     <Fragment>
       <Hero

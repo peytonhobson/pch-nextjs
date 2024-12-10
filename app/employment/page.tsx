@@ -14,6 +14,8 @@ export const metadata: Metadata = {
 
 // ts-unused-exports:disable-next-line
 export default function EmploymentPage() {
+  console.count('Navigated to Employment')
+
   return (
     <Fragment>
       <Hero
