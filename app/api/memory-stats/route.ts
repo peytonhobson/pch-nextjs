@@ -8,6 +8,10 @@ import { headers } from 'next/headers'
  * NOTE: You should protect this endpoint in production with
  * proper authentication to prevent leaking sensitive information
  */
+
+// Mark this route as dynamic since it uses headers
+export const dynamic = 'force-dynamic'
+
 export async function GET() {
   try {
     // In production, require a simple API key for protection
