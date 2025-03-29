@@ -1,24 +1,42 @@
 'use client'
 
 import Link from 'next/link'
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useState, useRef } from 'react'
 import { Button } from '@@/components/Button/Button'
 import { facilities } from '@@/data/facilities.en'
 import { Card } from '@@/components/Card/Card'
+import { safeSetInterval, safeClearInterval } from './utils/memoryLeak'
 
 const IMAGE_LINKS = facilities.map(facility => facility.images[0])
 
 export function FacilityCard() {
   const [index, setIndex] = useState<number>(0)
-
   const [currentFacility, setCurrentFacility] = useState(facilities[index])
+  const intervalIdRef = useRef<NodeJS.Timeout | undefined>(undefined)
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((index + 1) % facilities.length)
+    // Clear any existing interval first
+    if (intervalIdRef.current) {
+      safeClearInterval(intervalIdRef.current)
+      intervalIdRef.current = undefined
+    }
+
+    // Create and track new interval with the safer function
+    intervalIdRef.current = safeSetInterval(() => {
+      setIndex(prevIndex => (prevIndex + 1) % facilities.length)
     }, 4000)
 
-    return () => clearInterval(interval)
+    return () => {
+      if (intervalIdRef.current) {
+        safeClearInterval(intervalIdRef.current)
+        intervalIdRef.current = undefined
+      }
+    }
+  }, [])
+
+  // Update current facility when index changes
+  useEffect(() => {
+    setCurrentFacility(facilities[index])
   }, [index])
 
   return (

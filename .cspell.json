@@ -1,17 +1,19 @@
 {
-  "ignorePaths":[
+  "ignorePaths": [
     "tailwind.config.ts"
   ],
   "words": [
-    "Chemeketa",
-    "Hallet",
-    "fortawesome",
-    "fontawesome",
     "AARP",
+    "Chemeketa",
+    "fontawesome",
+    "fortawesome",
+    "gmap",
+    "Hallet",
     "Hibner",
     "Leavell",
-    "gmap",
     "mapouter",
-    "sendgrid"
+    "reactroot",
+    "sendgrid",
+    "Unmark"
   ]
 }

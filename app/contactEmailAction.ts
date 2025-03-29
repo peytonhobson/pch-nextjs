@@ -1,11 +1,6 @@
 'use server'
 
-import sgMail from '@sendgrid/mail'
-
-// Set SendGrid API key
-if (process.env.SENDGRID_API_KEY) {
-  sgMail.setApiKey(process.env.SENDGRID_API_KEY)
-}
+import { sgMail } from '@@/utils/sendgrid'
 
 // Create server action in nextjs to send email
 export async function contactEmailAction({

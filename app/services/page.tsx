@@ -31,7 +31,7 @@ export const metadata: Metadata = {
 
 // ts-unused-exports:disable-next-line
 export default function ServicesPage() {
-  console.count('Navigated to Services')
+  console.log('Navigated to Services')
 
   return (
     <Fragment>

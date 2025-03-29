@@ -54,7 +54,7 @@ export const metadata: Metadata = {
 
 // ts-unused-exports:disable-next-line
 export default function Home() {
-  console.count('Navigated to Home')
+  console.log('Navigated to Home')
 
   return (
     <Fragment>
