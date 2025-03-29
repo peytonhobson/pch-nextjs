@@ -1,6 +1,7 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
+import { safeSetInterval, safeClearInterval } from '../utils/memoryLeak'
 
 interface MemorySnapshot {
   timestamp: number
@@ -27,6 +28,7 @@ export function MemoryMonitor() {
   const [isVisible, setIsVisible] = useState(false)
   const [isExpanded, setIsExpanded] = useState(false)
   const [leakDetected, setLeakDetected] = useState(false)
+  const intervalIdRef = useRef<NodeJS.Timeout | undefined>(undefined)
 
   // Toggle visibility
   const toggleVisibility = () => setIsVisible(!isVisible)
@@ -99,12 +101,21 @@ export function MemoryMonitor() {
     // Capture memory immediately
     captureMemory()
 
+    // Clean up any existing interval
+    if (intervalIdRef.current) {
+      safeClearInterval(intervalIdRef.current)
+      intervalIdRef.current = undefined
+    }
+
     // Then capture every 5 seconds in all environments (increased from 3 to reduce overhead)
-    const interval = setInterval(captureMemory, 5000)
+    intervalIdRef.current = safeSetInterval(captureMemory, 5000)
 
     // Cleanup
     return () => {
-      clearInterval(interval)
+      if (intervalIdRef.current) {
+        safeClearInterval(intervalIdRef.current)
+        intervalIdRef.current = undefined
+      }
     }
   }, [])
 

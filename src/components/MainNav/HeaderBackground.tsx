@@ -1,6 +1,10 @@
 'use client'
 
 import { createContext, useContext, useEffect, useState } from 'react'
+import {
+  addTrackedEventListener,
+  removeTrackedEventListener
+} from '../../../app/utils/memoryLeak'
 
 type HeaderContextType = {
   transparentBackground: boolean
@@ -28,9 +32,24 @@ export function HeaderBackground({ children }: { children: React.ReactNode }) {
 
     if (window.scrollY > 10) setTransparentBackground(false)
 
-    window.addEventListener('scroll', handleScroll)
+    // Use the tracked event listener functions to prevent memory leaks
+    if (typeof window !== 'undefined') {
+      addTrackedEventListener(
+        window as unknown as Element,
+        'scroll',
+        handleScroll
+      )
 
-    return () => window.removeEventListener('scroll', handleScroll)
+      return () => {
+        removeTrackedEventListener(
+          window as unknown as Element,
+          'scroll',
+          handleScroll
+        )
+      }
+    }
+
+    return undefined
   }, [])
 
   return (

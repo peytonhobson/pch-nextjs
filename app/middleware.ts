@@ -12,22 +12,41 @@ interface MemoryLog {
   arrayBuffers?: number
 }
 
-const memoryLogs: MemoryLog[] = []
-const MAX_LOGS = 100
+// Use WeakRef to avoid preventing garbage collection
+const createCircularBuffer = <T>(maxSize: number) => {
+  const buffer: T[] = []
+  return {
+    push: (item: T) => {
+      if (buffer.length >= maxSize) {
+        buffer.shift()
+      }
+      buffer.push(item)
+    },
+    getAll: () => [...buffer],
+    getRecent: (count: number) => buffer.slice(-Math.min(count, buffer.length))
+  }
+}
+
+const memoryLogs = createCircularBuffer<MemoryLog>(100)
+const MAX_COUNTER = 1000000 // Reset counter when it reaches this value
 let requestCounter = 0
 const SAMPLING_RATE = process.env.NODE_ENV === 'production' ? 100 : 20 // Less frequent in production
 
 // Add memory measurement every x requests to avoid excessive logging
 // and to monitor trends
 export function middleware(request: NextRequest) {
+  // Increment counter and reset if needed to prevent integer overflow
   requestCounter++
+  if (requestCounter >= MAX_COUNTER) {
+    requestCounter = 1
+  }
 
   // Only sample every X requests to avoid excessive logging
   if (requestCounter % SAMPLING_RATE === 0) {
     const memoryUsage = process.memoryUsage()
     const timestamp = new Date().toISOString()
 
-    // Add to the memory logs
+    // Add to the memory logs using the circular buffer
     memoryLogs.push({
       timestamp,
       url: request.nextUrl.pathname,
@@ -37,11 +56,6 @@ export function middleware(request: NextRequest) {
       external: memoryUsage.external,
       arrayBuffers: memoryUsage.arrayBuffers
     })
-
-    // Keep the logs array at a reasonable size
-    if (memoryLogs.length > MAX_LOGS) {
-      memoryLogs.shift()
-    }
 
     // Format memory values for display
     const rssInMB = Math.round(memoryUsage.rss / 1024 / 1024)
@@ -86,10 +100,11 @@ export function middleware(request: NextRequest) {
         )
       }
 
-      // Check for memory growth over time
-      if (memoryLogs.length > 10) {
-        const oldestSample = memoryLogs[0]
-        const newestSample = memoryLogs[memoryLogs.length - 1]
+      // Check for memory growth over time using the circular buffer
+      const allLogs = memoryLogs.getAll()
+      if (allLogs.length > 10) {
+        const oldestSample = allLogs[0]
+        const newestSample = allLogs[allLogs.length - 1]
 
         const growthRate =
           ((newestSample.heapUsed - oldestSample.heapUsed) /
@@ -98,12 +113,12 @@ export function middleware(request: NextRequest) {
 
         if (growthRate > 20) {
           console.warn(
-            `⚠️ WARNING: Memory usage has grown by ${growthRate.toFixed(2)}% over the last ${memoryLogs.length} samples.`
+            `⚠️ WARNING: Memory usage has grown by ${growthRate.toFixed(2)}% over the last ${allLogs.length} samples.`
           )
           console.warn('This may indicate a memory leak. Routes accessed:')
 
           // Show the last 5 routes accessed
-          const recentRoutes = memoryLogs.slice(-5).map(log => log.url)
+          const recentRoutes = memoryLogs.getRecent(5).map(log => log.url)
           console.warn(recentRoutes)
         }
       }

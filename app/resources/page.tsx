@@ -41,7 +41,7 @@ export const metadata: Metadata = {
 
 // ts-unused-exports:disable-next-line
 export default function ResourcesPage() {
-  console.count('Navigated to Resources')
+  console.log('Navigated to Resources')
 
   return (
     <Fragment>

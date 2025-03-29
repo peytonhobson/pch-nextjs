@@ -56,7 +56,7 @@ export default function FacilityPage({
   if (facility === undefined) return <Fragment />
 
   // Log page visit and current memory usage
-  console.count(`Navigated to ${facilityName}`)
+  console.log(`Navigated to ${facilityName}`)
   logMemoryUsage(facilityName)
 
   // TODO: Move some of this to layout.js
