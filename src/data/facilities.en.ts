@@ -5,6 +5,7 @@ export interface Facility {
   description: string
   images: string[]
   location: string
+  address: string
 }
 
 export const facilities = [
@@ -24,7 +25,8 @@ export const facilities = [
       'https://premier-care-homes.s3.amazonaws.com/assets/baxter/baxter-5.jpg'
     ],
     location:
-      'https://maps.google.com/maps?q=2336%20Baxter%20Rd%20SE&t=&z=13&ie=UTF8&iwloc=&output=embed'
+      'https://maps.google.com/maps?q=2336%20Baxter%20Rd%20SE&t=&z=13&ie=UTF8&iwloc=&output=embed',
+    address: '2336 Baxter Rd SE, Salem, OR 97302'
   },
   {
     id: 2,
@@ -44,7 +46,8 @@ export const facilities = [
       'https://premier-care-homes.s3.amazonaws.com/assets/hallet/hallet-6.jpg'
     ],
     location:
-      'https://maps.google.com/maps?q=1548%20Hallet%20Ct.%20NW&t=&z=13&ie=UTF8&iwloc=&output=embed'
+      'https://maps.google.com/maps?q=1548%20Hallet%20Ct.%20NW&t=&z=13&ie=UTF8&iwloc=&output=embed',
+    address: '1548 Hallet Ct NW, Salem, OR 97304'
   },
   {
     id: 3,
@@ -67,7 +70,8 @@ export const facilities = [
       'https://premier-care-homes.s3.amazonaws.com/assets/madrona/madrona-7.jpg'
     ],
     location:
-      'https://maps.google.com/maps?q=1270%20Madrona%20Ave%20S&t=&z=13&ie=UTF8&iwloc=&output=embed'
+      'https://maps.google.com/maps?q=1270%20Madrona%20Ave%20S&t=&z=13&ie=UTF8&iwloc=&output=embed',
+    address: '1270 Madrona Ave S, Salem, OR 97302'
   },
   {
     id: 4,
@@ -85,6 +89,7 @@ export const facilities = [
       'https://premier-care-homes.s3.amazonaws.com/assets/trapper/trapper-5.jpg'
     ],
     location:
-      'https://maps.google.com/maps?q=4322%20Trapper%20Dr%20NE,%20Salem,%20OR&t=&z=13&ie=UTF8&iwloc=&output=embed'
+      'https://maps.google.com/maps?q=4322%20Trapper%20Dr%20NE,%20Salem,%20OR&t=&z=13&ie=UTF8&iwloc=&output=embed',
+    address: '4322 Trapper Dr NE, Salem, OR 97305'
   }
 ] as const satisfies Facility[]
