@@ -70,7 +70,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 /* Need slightly darker gray for disabled text */
                 --df-disabled: rgb(119, 157, 127, 0.5);
 
-                --df-font-family: Montserrat, Helvetica, Arial, Verdana, sans-serif;
+                --df-font-family: Avenir, Helvetica, Arial, sans-serif;
                 /* --df-mono-font-family: monospace; */
                 --df-font-size-base: 16px;
 
