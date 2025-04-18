@@ -36,7 +36,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <script
           type="module"
           async
-          src="https://dialogue-foundry-frontend.s3.us-east-1.amazonaws.com/0.2/index.js"
+          src="https://djwdzs5n3r4m2.cloudfront.net/0.2/index.js"
         ></script>
         <style
           dangerouslySetInnerHTML={{
