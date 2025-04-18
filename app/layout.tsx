@@ -91,6 +91,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               .nlux-comp-composer>button>.nlux-comp-sendIcon>.nlux-comp-sendIcon-container:hover {
                 color: var(--df-tertiary-color);
               }
+
+              .nlux-comp-cancelIcon-container {
+                color: var(--df-primary-color);
+              }
             `
           }}
         />
