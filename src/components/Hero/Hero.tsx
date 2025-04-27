@@ -14,7 +14,7 @@ export function Hero({ image, title, text, children }: HeroProps) {
   const [imageLoaded, setImageLoaded] = useState(false)
 
   return (
-    <div className="hero h-screen lg:min-h-96 relative hero-overlay overflow-hidden w-full relative bg-white">
+    <div className="hero h-screen lg:min-h-96 relative hero-overlay overflow-hidden w-full bg-white">
       <NextImage
         src={image}
         alt="Hero"

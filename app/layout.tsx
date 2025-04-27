@@ -18,7 +18,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             __html: JSON.stringify({
               chatConfig: {
                 apiBaseUrl:
-                  'https://dialogue-foundry-backend-prod-6qbt.onrender.com/api',
+                  'https://dialogue-foundry-backend-smokebox-swjv.onrender.com/api',
                 companyId: 'premier-care-homes'
               },
               theme: 'light',
@@ -94,6 +94,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
               .nlux-comp-cancelIcon-container {
                 color: var(--df-primary-color);
+              }
+
+              .chat-window a {
+                color: var(--df-primary-color);
+                text-decoration: underline;
               }
             `
           }}
