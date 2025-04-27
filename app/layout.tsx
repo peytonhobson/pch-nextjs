@@ -18,7 +18,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             __html: JSON.stringify({
               chatConfig: {
                 apiBaseUrl:
-                  'https://dialogue-foundry-backend-smokebox-swjv.onrender.com/api',
+                  'https://dialogue-foundry-backend-prod-6qbt.onrender.com/api',
                 companyId: 'premier-care-homes'
               },
               theme: 'light',
