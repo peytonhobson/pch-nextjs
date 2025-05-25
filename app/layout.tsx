@@ -4,6 +4,12 @@ import { MainNav } from '../src/components/MainNav/MainNav'
 import '../public/globals.css'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import { MemoryMonitorWrapper } from './components/MemoryMonitorWrapper'
+import { setupPeriodicMemoryCleanup } from './utils/memoryLeak'
+
+// Setup periodic memory cleanup in production
+if (process.env.NODE_ENV === 'production') {
+  setupPeriodicMemoryCleanup()
+}
 
 // ts-unused-exports:disable-next-line
 export default function Layout({ children }: { children: React.ReactNode }) {

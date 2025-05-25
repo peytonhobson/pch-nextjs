@@ -56,45 +56,55 @@ export function MemoryMonitor() {
           route: window.location.pathname
         }
 
-        // Always log memory usage regardless of environment
+        // In production, only log critical memory issues to avoid log accumulation
+        if (process.env.NODE_ENV === 'production') {
+          const usedHeapPercentage =
+            (memory.usedJSHeapSize / memory.jsHeapSizeLimit) * 100
+          if (usedHeapPercentage > 85) {
+            console.warn(
+              `[Memory Monitor] Critical usage: ${formatBytes(newSnapshot.heapSize)} (${usedHeapPercentage.toFixed(1)}%)`
+            )
+          }
+          return // Don't accumulate state in production
+        }
+
+        // Development logging
         console.log(`[Memory Monitor] ${window.location.pathname}`)
         console.log(`  Heap Used: ${formatBytes(newSnapshot.heapSize)}`)
         console.log(`  Total Heap: ${formatBytes(memory.totalJSHeapSize)}`)
         console.log(`  Heap Limit: ${formatBytes(memory.jsHeapSizeLimit)}`)
 
-        // Only update state for UI if in development mode
-        if (process.env.NODE_ENV === 'development') {
-          setMemorySnapshots(prev => {
-            const newSnapshots = [...prev, newSnapshot].slice(-20) // Keep only the last 20 samples
+        // Only update state for UI in development mode
+        setMemorySnapshots(prev => {
+          const newSnapshots = [...prev, newSnapshot].slice(-20) // Keep only the last 20 samples
 
-            // Simple leak detection - check if memory usage is consistently growing
-            if (newSnapshots.length > 10) {
-              const oldestSnapshot = newSnapshots[0]
-              const newestSnapshot = newSnapshots[newSnapshots.length - 1]
+          // Simple leak detection - check if memory usage is consistently growing
+          if (newSnapshots.length > 10) {
+            const oldestSnapshot = newSnapshots[0]
+            const newestSnapshot = newSnapshots[newSnapshots.length - 1]
 
-              if (oldestSnapshot.heapSize && newestSnapshot.heapSize) {
-                const growthRate =
-                  (newestSnapshot.heapSize - oldestSnapshot.heapSize) /
-                  oldestSnapshot.heapSize
+            if (oldestSnapshot.heapSize && newestSnapshot.heapSize) {
+              const growthRate =
+                (newestSnapshot.heapSize - oldestSnapshot.heapSize) /
+                oldestSnapshot.heapSize
 
-                // If memory grows by more than 10% across 10 samples, flag as potential leak
-                if (growthRate > 0.1) {
-                  setLeakDetected(true)
-                  console.warn(
-                    '⚠️ Potential memory leak detected in the browser!'
-                  )
-                  console.warn(
-                    `⚠️ Memory grew by ${(growthRate * 100).toFixed(2)}% across the last ${newSnapshots.length} samples`
-                  )
-                } else {
-                  setLeakDetected(false)
-                }
+              // If memory grows by more than 10% across 10 samples, flag as potential leak
+              if (growthRate > 0.1) {
+                setLeakDetected(true)
+                console.warn(
+                  '⚠️ Potential memory leak detected in the browser!'
+                )
+                console.warn(
+                  `⚠️ Memory grew by ${(growthRate * 100).toFixed(2)}% across the last ${newSnapshots.length} samples`
+                )
+              } else {
+                setLeakDetected(false)
               }
             }
+          }
 
-            return newSnapshots
-          })
-        }
+          return newSnapshots
+        })
       }
     }
 
@@ -107,8 +117,10 @@ export function MemoryMonitor() {
       intervalIdRef.current = undefined
     }
 
-    // Then capture every 5 seconds in all environments (increased from 3 to reduce overhead)
-    intervalIdRef.current = safeSetInterval(captureMemory, 5000)
+    // Reduce monitoring frequency in production to minimize overhead
+    const monitoringInterval =
+      process.env.NODE_ENV === 'production' ? 30000 : 5000
+    intervalIdRef.current = safeSetInterval(captureMemory, monitoringInterval)
 
     // Cleanup
     return () => {

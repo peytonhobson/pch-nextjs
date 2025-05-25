@@ -17,14 +17,14 @@ function logMemoryUsage(facilityName: string) {
   if (typeof process !== 'undefined' && process.memoryUsage) {
     const memoryUsage = process.memoryUsage()
 
-    // In production, log minimal information
+    // In production, only log when memory usage is critically high
     if (process.env.NODE_ENV === 'production') {
-      // Only log high usage in production to avoid excessive logs
       const memoryUsedPercentage =
         (memoryUsage.heapUsed / memoryUsage.heapTotal) * 100
-      if (memoryUsedPercentage > 75) {
+      if (memoryUsedPercentage > 85) {
+        // Increased threshold from 75% to 85%
         console.warn(
-          `[Memory] High usage on ${facilityName} page: ${Math.round(memoryUsage.heapUsed / 1024 / 1024)}MB (${memoryUsedPercentage.toFixed(1)}%)`
+          `[Memory] Critical usage on ${facilityName} page: ${Math.round(memoryUsage.heapUsed / 1024 / 1024)}MB (${memoryUsedPercentage.toFixed(1)}%)`
         )
       }
     } else {

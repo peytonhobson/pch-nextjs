@@ -27,10 +27,10 @@ const createCircularBuffer = <T>(maxSize: number) => {
   }
 }
 
-const memoryLogs = createCircularBuffer<MemoryLog>(100)
+const memoryLogs = createCircularBuffer<MemoryLog>(50)
 const MAX_COUNTER = 1000000 // Reset counter when it reaches this value
 let requestCounter = 0
-const SAMPLING_RATE = process.env.NODE_ENV === 'production' ? 100 : 20 // Less frequent in production
+const SAMPLING_RATE = process.env.NODE_ENV === 'production' ? 200 : 50 // Reduced frequency in both environments
 
 // Add memory measurement every x requests to avoid excessive logging
 // and to monitor trends

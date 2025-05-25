@@ -35,7 +35,7 @@ class Logger {
     level: 'info',
     enabled: true,
     captureConsole: false,
-    maxLogSize: 100 // Default to storing last 100 logs in memory
+    maxLogSize: process.env.NODE_ENV === 'production' ? 0 : 50 // Don't store logs in production
   }
   private logs: LogEntry[] = []
   private originalConsole = {
@@ -222,11 +222,16 @@ class Logger {
   }
 
   private addToMemory(entry: LogEntry): void {
+    // Don't store logs in memory in production to prevent memory leaks
+    if (process.env.NODE_ENV === 'production') {
+      return
+    }
+
     this.logs.push(entry)
 
     // Trim logs if they exceed maxLogSize
-    if (this.logs.length > (this.options.maxLogSize || 100)) {
-      this.logs = this.logs.slice(-(this.options.maxLogSize || 100))
+    if (this.logs.length > (this.options.maxLogSize || 50)) {
+      this.logs = this.logs.slice(-(this.options.maxLogSize || 50))
     }
   }
 

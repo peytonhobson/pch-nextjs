@@ -262,3 +262,38 @@ export const setupMemoryLeakDetection =
         }, checkInterval)
       }
     : () => 0 as unknown as NodeJS.Timeout // No-op in production or SSR
+
+/**
+ * Force garbage collection and clear any accumulated tracking data
+ * Call this periodically in production to help with memory management
+ */
+export function forceMemoryCleanup(): void {
+  // Clear the leak tracker data
+  leakTracker.timers.clear()
+  leakTracker.intervalCount = 0
+
+  // Force garbage collection if available (Node.js with --expose-gc flag)
+  if (typeof global !== 'undefined' && global.gc) {
+    try {
+      global.gc()
+      console.log('[Memory] Forced garbage collection completed')
+    } catch (e) {
+      // Garbage collection not available
+    }
+  }
+}
+
+/**
+ * Setup periodic memory cleanup in production
+ * This helps prevent memory accumulation over time
+ */
+export function setupPeriodicMemoryCleanup(): NodeJS.Timeout | undefined {
+  if (process.env.NODE_ENV !== 'production') {
+    return undefined
+  }
+
+  // Clean up memory every 10 minutes in production
+  return safeSetInterval(() => {
+    forceMemoryCleanup()
+  }, 600000) // 10 minutes
+}
