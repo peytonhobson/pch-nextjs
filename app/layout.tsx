@@ -24,7 +24,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             __html: JSON.stringify({
               chatConfig: {
                 apiBaseUrl:
-                  'https://dialogue-foundry-backend-prod-6qbt.onrender.com/api',
+                  'https://dialogue-foundry-backend-v2-test.onrender.com/api',
                 companyId: 'premier-care-homes'
               },
               theme: 'light',
@@ -35,14 +35,33 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   tagline: 'Ask me anything about Premier Care Homes'
                 }
               },
-              popupMessage: 'Have questions? Click here for help!'
+              popupMessage: 'Have questions? Click here for help!',
+              welcomeMessage: "Welcome to Premier Care Homes, where your comfort and care are our top priorities!\n\nDiscover our beautiful homes in Salem that are tailored for exceptional care.\n\nStart your journey with us today!",
+              conversationStarters: [
+                {
+                  label: 'Locations',
+                  prompt: 'What neighborhoods are Premier Care Homes facilities located in?'
+                },
+                {
+                  label: 'Services',
+                  prompt: 'What services does Premier Care Homes offer?'
+                },
+                {
+                  label: 'Contact',
+                  prompt: 'How can I get in contact with Premier Care Homes?'
+                },
+                {
+                  label: 'Careers',
+                  prompt: 'How can I apply for a job at Premier Care Homes?'
+                }
+              ]
             })
           }}
         />
         <script
           type="module"
           async
-          src="https://djwdzs5n3r4m2.cloudfront.net/0.2/index.js"
+          src="https://djwdzs5n3r4m2.cloudfront.net/0.3/index.js"
         ></script>
         <style
           dangerouslySetInnerHTML={{
