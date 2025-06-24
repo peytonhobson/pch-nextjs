@@ -28,7 +28,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 companyId: 'premier-care-homes'
               },
               theme: 'light',
-              title: 'Premier Care Homes',
+              logoUrl: 'https://premier-care-homes.s3.amazonaws.com/assets/other/premier-care-homes-logo1.png',
               personaOptions: {
                 assistant: {
                   name: 'Premier Care Homes Expert',
