@@ -178,7 +178,6 @@ export function checkForMemoryLeaks(): void {
     }
 
     // Try to access Chrome-specific memory info if available
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const windowPerformance = window.performance as any
 
     if (windowPerformance && windowPerformance.memory) {

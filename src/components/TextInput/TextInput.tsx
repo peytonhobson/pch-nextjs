@@ -48,7 +48,6 @@ export function TextInput<T extends InputType>({
 
   attributes = {}
 }: TextInputProps<T> & InputAttributes<T>) {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const Component = inputType === 'textarea' ? 'textarea' : ('input' as any)
 
   return (

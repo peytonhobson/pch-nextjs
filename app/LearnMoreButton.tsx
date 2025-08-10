@@ -5,7 +5,6 @@ import { Button } from '@@/components/Button/Button'
 
 // ts-unused-exports:disable-next-line
 export default function SmoothScroll() {
-  // eslint-disable-next-line no-null/no-null
   const scrollRef = useRef<HTMLDivElement>(null)
 
   return (
