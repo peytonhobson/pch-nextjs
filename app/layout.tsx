@@ -30,6 +30,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               logoUrl: 'https://premier-care-homes.s3.amazonaws.com/assets/other/premier-care-homes-logo1.png',
               popupMessage: 'Have questions? Click here for help!',
               welcomeMessage: "Welcome to Premier Care Homes!\n\nHave a question about our services, locations, or how to get your loved one started? Just type it here and I'll help out!\n\nNot sure what to ask? Click one of the quick topics below to get started.",
+              openOnLoad: "desktop-only",
               suggestions: [
                 {
                   prompt: 'What neighborhoods are your facilities located in?'
