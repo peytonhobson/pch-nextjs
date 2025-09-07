@@ -32,10 +32,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               welcomeMessage: "Welcome to Premier Care Homes!\n\nHave a question about our services, locations, or how to get your loved one started? Just type it here and I'll help out!\n\nNot sure what to ask? Click one of the quick topics below to get started.",
               suggestions: [
                 {
-                  prompt: 'What neighborhoods are Premier Care Homes\' facilities located in?'
+                  prompt: 'What neighborhoods are your facilities located in?'
                 },
                 {
-                  prompt: 'What services does Premier Care Homes offer?'
+                  prompt: 'What services do you offer?'
                 },
                 {
                   prompt: 'How can I get in contact?'
