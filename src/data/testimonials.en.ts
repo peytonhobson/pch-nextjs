@@ -8,7 +8,7 @@ export const testimonials = [
   {
     id: 2,
     quote:
-      "I'm writing to thank both of you for providing such great care for our mom over the past year. Both of you (Janelle and Margie) and your staff were wonderful -- both in mom's day to day care and in involving us and keeping us in the loop. We felt total confidence in you having the best interests of your clients in mind (and heart), and that is no small thing in this world… Thanks again for everything you do.",
+      "I'm writing to thank you for providing such great care for our mom over the past year. You and your staff were wonderful — both in mom's day‑to‑day care and in involving us and keeping us in the loop. We felt total confidence in you having the best interests of your clients in mind (and heart), and that is no small thing in this world… Thanks again for everything you do.",
     author: 'Cathy'
   },
   {

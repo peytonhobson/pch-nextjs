@@ -10,13 +10,15 @@ export function Card({
   alt,
   title,
   description,
-  button
+  button,
+  descriptionClassName
 }: {
   className?: string
   children?: React.ReactNode
   title?: React.ReactNode
   description?: React.ReactNode
   button?: React.ReactNode
+  descriptionClassName?: string
 } & (
   | {
       image: string
@@ -54,7 +56,7 @@ export function Card({
       )}
 
       {(title || description || button) && (
-        <div className="flex flex-col flex-grow justify-between pb-10 px-10">
+        <div className={`flex flex-col flex-grow justify-between pb-10 px-10 ${descriptionClassName}`}>
           <div>
             {title && <h4 className="pt-10">{title}</h4>}
             {description && <div className="pt-5">{description}</div>}

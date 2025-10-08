@@ -26,15 +26,6 @@ const CONTACTS = [
       'https://premier-care-homes.s3.amazonaws.com/headshot/janelle_headshot.jpeg'
   },
   {
-    name: 'Margie Hibner',
-    title: 'Co-Owner/Physical Therapist',
-    phoneNumber: '503-302-4750',
-    email: 'margie@premiercarehomes.net',
-    number: '2',
-    image:
-      'https://premier-care-homes.s3.amazonaws.com/headshot/margie_headshot.jpeg'
-  },
-  {
     name: 'Scott Leavell',
     title: 'Affiliate/Paramedic',
     phoneNumber: '901-326-3521',
@@ -128,6 +119,7 @@ export default function Home() {
             <Card
               title="Contact Us"
               className="md:max-w-md w-full md:w-2/5 lg:w-2/7 flex flex-col md:min-w-[23rem] min-h-128"
+              descriptionClassName="flex-grow-0 pb-5"
               description="We would like to hear from you, talk to you, and/or give you a tour of
         one of our wonderful homes."
             >
@@ -195,9 +187,7 @@ function ContactInfo({
         loading="lazy"
         height={80}
         width={80}
-        className={`rounded-full max-h-20 max-w-20 ${
-          personName !== 'Margie Hibner' && 'object-cover'
-        }`}
+        className={`rounded-full max-h-20 max-w-20 object-cover`}
         alt={personName}
       />
 
